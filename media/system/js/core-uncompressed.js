@@ -93,8 +93,8 @@ Joomla.editors.instances = Joomla.editors.instances || {
 	 *
 	 * @returns {void}
 	 */
-	Joomla.submitbutton = function( pressbutton ) {
-		Joomla.submitform( pressbutton );
+	Joomla.submitbutton = function( task ) {
+		Joomla.submitform( task );
 	};
 
 	/**
@@ -237,7 +237,7 @@ Joomla.editors.instances = Joomla.editors.instances || {
 		for ( i = 0, n = els.length; i < n; i++ ) {
 			el = els[i];
 
-			if ( el.type == 'hidden' && el.value == '1' && el.name.length == 32 ) {
+			if ( el.type === 'hidden' && el.value === '1' && el.name.length === 32 ) {
 				el.name = newToken;
 			}
 		}
@@ -283,7 +283,7 @@ Joomla.editors.instances = Joomla.editors.instances || {
 		for ( i = 0, n = checkbox.form.elements.length; i < n; i++ ) {
 			e = checkbox.form.elements[ i ];
 
-			if ( e.type == checkbox.type && e.id.indexOf( stub ) === 0 ) {
+			if ( e.type === checkbox.type && e.id.indexOf( stub ) === 0 ) {
 				e.checked = checkbox.checked;
 				c += e.checked ? 1 : 0;
 			}
@@ -340,7 +340,7 @@ Joomla.editors.instances = Joomla.editors.instances || {
 			title = Joomla.JText._( type );
 
 			// Skip titles with untranslated strings
-			if ( typeof title != 'undefined' ) {
+			if ( typeof title !== 'undefined' ) {
 				titleWrapper = document.createElement( 'h4' );
 				titleWrapper.className = 'alert-heading';
 				titleWrapper.innerHTML = Joomla.JText._( type );
@@ -463,7 +463,7 @@ Joomla.editors.instances = Joomla.editors.instances || {
 		for ( i = 0, n = form.elements.length; i < n; i++ ) {
 			e = form.elements[ i ];
 
-			if ( e.type == 'checkbox' && e.name != 'checkall-toggle' && !e.checked ) {
+			if ( e.type === 'checkbox' && e.name !== 'checkall-toggle' && !e.checked ) {
 				c = false;
 				break;
 			}
@@ -791,6 +791,7 @@ Joomla.editors.instances = Joomla.editors.instances || {
 			var loadingDiv = document.createElement('div');
 
 			loadingDiv.id = 'loading-logo';
+			loadingDiv.className = 'loading-layer';
 
 			// The loading layer CSS styles are JS hardcoded so they can be used without adding CSS.
 
@@ -808,7 +809,6 @@ Joomla.editors.instances = Joomla.editors.instances || {
 			loadingDiv.style['background-color']      = '#fff';
 
 			// Loading logo positioning.
-			loadingDiv.style['background-image']      = 'url("' + basePath + '/media/jui/images/ajax-loader.gif")';
 			loadingDiv.style['background-position']   = 'center';
 			loadingDiv.style['background-repeat']     = 'no-repeat';
 			loadingDiv.style['background-attachment'] = 'fixed';
@@ -823,7 +823,7 @@ Joomla.editors.instances = Joomla.editors.instances || {
 				Joomla.loadingLayer('load', parentElement);
 			}
 
-			document.getElementById('loading-logo').style['display'] = (task == 'show') ? 'block' : 'none';
+			document.getElementById('loading-logo').style['display'] = (task === 'show') ? 'block' : 'none';
 		}
 
 		return document.getElementById('loading-logo');

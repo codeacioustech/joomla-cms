@@ -6085,6 +6085,9 @@ th .tooltip-inner {
 .alert-info .alert-link {
 	color: #245269;
 }
+.loading-layer {
+	background-image: url("../images/ajax-loader.gif");
+}
 div.modal {
 	position: fixed;
 	top: 5%;
