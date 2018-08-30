@@ -316,9 +316,10 @@ abstract class HTMLHelper
 	 * @param   boolean  $detect_browser  Flag if the browser should be detected to include specific browser files.
 	 * @param   boolean  $detect_debug    Flag if debug mode is enabled to include uncompressed files if debug is on.
 	 *
-	 * @return  array    files to be included.
+	 * @return  array  Files to be included.
 	 *
 	 * @see     JBrowser
+	 *
 	 * @since   1.6
 	 */
 	protected static function includeRelativeFiles($folder, $file, $relative, $detect_browser, $detect_debug)
@@ -330,11 +331,8 @@ abstract class HTMLHelper
 		}
 
 		// Extract extension and strip the file
-		$strip = \JFile::stripExt($file);
 		$ext   = \JFile::getExt($file);
-
-		// Prepare array of files
-		$includes = array();
+		$strip = \JFile::stripExt($file);
 
 		// Detect browser and compute potential files
 		if ($detect_browser)
@@ -359,192 +357,85 @@ abstract class HTMLHelper
 		}
 
 		// If relative search in template directory or media directory
+		$is_debug = $detect_debug && Factory::getConfig()->get('debug');
+		$files    = array();
+
+		foreach ($potential as $i => $strip)
+		{
+			if ($is_debug)
+			{
+				/*
+				 * Detect debug mode
+				 *
+				 * Detect if we received a file in the format name.min.ext
+				 * If so, strip the .min part out, otherwise append -uncompressed
+				 */
+				if (strlen($strip) > 4 && preg_match('#\.min$#', $strip))
+				{
+					$files[$i][] = preg_replace('#\.min$#', '.', $strip) . $ext;
+				}
+				else
+				{
+					$files[$i][] = $strip . '-uncompressed.' . $ext;
+				}
+			}
+
+			$files[$i][] = $strip . '.' . $ext;
+		}
+
+		/*
+		 * Loop on 1 or 2 files and break on first found.
+		 * Add the content of the MD5SUM file located in the same folder to URL to ensure cache browser refresh
+		 * This MD5SUM file must represent the signature of the folder content
+		 */
+		$includes = array();
+
 		if ($relative)
 		{
-			// Get the template
-			$template = Factory::getApplication()->getTemplate();
-
 			// For each potential files
-			foreach ($potential as $strip)
+			foreach ($files as $fileset)
 			{
-				$files = array();
-
-				// Detect debug mode
-				if ($detect_debug && Factory::getConfig()->get('debug'))
-				{
-					/*
-					 * Detect if we received a file in the format name.min.ext
-					 * If so, strip the .min part out, otherwise append -uncompressed
-					 */
-					if (strlen($strip) > 4 && preg_match('#\.min$#', $strip))
-					{
-						$files[] = preg_replace('#\.min$#', '.', $strip) . $ext;
-					}
-					else
-					{
-						$files[] = $strip . '-uncompressed.' . $ext;
-					}
-				}
-
-				$files[] = $strip . '.' . $ext;
-
 				/*
 				 * Loop on 1 or 2 files and break on first found.
 				 * Add the content of the MD5SUM file located in the same folder to URL to ensure cache browser refresh
 				 * This MD5SUM file must represent the signature of the folder content
 				 */
-				foreach ($files as $file)
+				foreach ($fileset as $file)
 				{
-					// If the file is in the template folder
-					$path = JPATH_THEMES . "/$template/$folder/$file";
+					$include = static::findRelativeFile($folder, $file);
 
-					if (file_exists($path))
+					if ($include)
 					{
-						$includes[] = Uri::base(true) . "/templates/$template/$folder/$file" . static::getMd5Version($path);
+						$includes[] = $include;
 
 						break;
-					}
-					else
-					{
-						// If the file contains any /: it can be in a media extension subfolder
-						if (strpos($file, '/'))
-						{
-							// Divide the file extracting the extension as the first part before /
-							list($extension, $file) = explode('/', $file, 2);
-
-							// If the file yet contains any /: it can be a plugin
-							if (strpos($file, '/'))
-							{
-								// Divide the file extracting the element as the first part before /
-								list($element, $file) = explode('/', $file, 2);
-
-								// Try to deal with plugins group in the media folder
-								$path = JPATH_ROOT . "/media/$extension/$element/$folder/$file";
-
-								if (file_exists($path))
-								{
-									$includes[] = Uri::root(true) . "/media/$extension/$element/$folder/$file" . static::getMd5Version($path);
-
-									break;
-								}
-
-								// Try to deal with classical file in a media subfolder called element
-								$path = JPATH_ROOT . "/media/$extension/$folder/$element/$file";
-
-								if (file_exists($path))
-								{
-									$includes[] = Uri::root(true) . "/media/$extension/$folder/$element/$file" . static::getMd5Version($path);
-
-									break;
-								}
-
-								// Try to deal with system files in the template folder
-								$path = JPATH_THEMES . "/$template/$folder/system/$element/$file";
-
-								if (file_exists($path))
-								{
-									$includes[] = Uri::root(true) . "/templates/$template/$folder/system/$element/$file" . static::getMd5Version($path);
-
-									break;
-								}
-
-								// Try to deal with system files in the media folder
-								$path = JPATH_ROOT . "/media/system/$folder/$element/$file";
-
-								if (file_exists($path))
-								{
-									$includes[] = Uri::root(true) . "/media/system/$folder/$element/$file" . static::getMd5Version($path);
-
-									break;
-								}
-							}
-							else
-							{
-								// Try to deals in the extension media folder
-								$path = JPATH_ROOT . "/media/$extension/$folder/$file";
-
-								if (file_exists($path))
-								{
-									$includes[] = Uri::root(true) . "/media/$extension/$folder/$file" . static::getMd5Version($path);
-
-									break;
-								}
-
-								// Try to deal with system files in the template folder
-								$path = JPATH_THEMES . "/$template/$folder/system/$file";
-
-								if (file_exists($path))
-								{
-									$includes[] = Uri::root(true) . "/templates/$template/$folder/system/$file" . static::getMd5Version($path);
-
-									break;
-								}
-
-								// Try to deal with system files in the media folder
-								$path = JPATH_ROOT . "/media/system/$folder/$file";
-
-								if (file_exists($path))
-								{
-									$includes[] = Uri::root(true) . "/media/system/$folder/$file" . static::getMd5Version($path);
-
-									break;
-								}
-							}
-						}
-						// Try to deal with system files in the media folder
-						else
-						{
-							$path = JPATH_ROOT . "/media/system/$folder/$file";
-
-							if (file_exists($path))
-							{
-								$includes[] = Uri::root(true) . "/media/system/$folder/$file" . static::getMd5Version($path);
-
-								break;
-							}
-						}
 					}
 				}
 			}
 		}
-		// If not relative and http is not present in filename
 		else
 		{
-			foreach ($potential as $strip)
+			// If not relative and http is not present in filename
+			foreach ($files as $fileset)
 			{
-				$files = array();
-
-				// Detect debug mode
-				if ($detect_debug && Factory::getConfig()->get('debug'))
-				{
-					/*
-					 * Detect if we received a file in the format name.min.ext
-					 * If so, strip the .min part out, otherwise append -uncompressed
-					 */
-					if (strlen($strip) > 4 && preg_match('#\.min$#', $strip))
-					{
-						$files[] = preg_replace('#\.min$#', '.', $strip) . $ext;
-					}
-					else
-					{
-						$files[] = $strip . '-uncompressed.' . $ext;
-					}
-				}
-
-				$files[] = $strip . '.' . $ext;
-
 				/*
 				 * Loop on 1 or 2 files and break on first found.
 				 * Add the content of the MD5SUM file located in the same folder to URL to ensure cache browser refresh
 				 * This MD5SUM file must represent the signature of the folder content
 				 */
-				foreach ($files as $file)
+				foreach ($fileset as $file)
 				{
-					$path = JPATH_ROOT . "/$file";
+					$path = "/$file";
 
-					if (file_exists($path))
+					if (file_exists(JPATH_BASE . $path))
 					{
-						$includes[] = Uri::root(true) . "/$file" . static::getMd5Version($path);
+						$includes[] = Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+
+						break;
+					}
+					elseif (file_exists(JPATH_ROOT . $path))
+					{
+						$includes[] = Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
 
 						break;
 					}
@@ -553,6 +444,138 @@ abstract class HTMLHelper
 		}
 
 		return $includes;
+	}
+
+	/**
+	 * Attempt to find a relative file for inclusion
+	 *
+	 * @param   string  $folder  The folder in which to lookup. Viz. - js, css, images
+	 * @param   string  $file    The filename to search for
+	 *
+	 * @return  string
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
+	protected static function findRelativeFile($folder, $file)
+	{
+		// If relative search in template directory or media directory
+		$template = Factory::getApplication()->getTemplate();
+
+		// If the file is in the template folder
+		$path = "/templates/$template/$folder/$file";
+
+		if (file_exists(JPATH_BASE . $path))
+		{
+			return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+		}
+
+		// If the file contains any /: it can be in a media extension subfolder
+		if (strpos($file, '/'))
+		{
+			// Divide the file extracting the extension as the first part before /
+			list($extension, $file) = explode('/', $file, 2);
+
+			// If the file yet contains any /: it can be a plugin
+			if (strpos($file, '/'))
+			{
+				// Divide the file extracting the element as the first part before /
+				list($element, $file) = explode('/', $file, 2);
+
+				// Try to deal with plugins group in the media folder
+				$path = "/media/$extension/$element/$folder/$file";
+
+				if (file_exists(JPATH_BASE . $path))
+				{
+					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+				}
+				elseif (file_exists(JPATH_ROOT . $path))
+				{
+					return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
+				}
+
+				// Try to deal with classical file in a media subfolder called element
+				$path = "/media/$extension/$folder/$element/$file";
+
+				if (file_exists(JPATH_BASE . $path))
+				{
+					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+				}
+				elseif (file_exists(JPATH_ROOT . $path))
+				{
+					return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
+				}
+
+				// Try to deal with system files in the template folder
+				$path = "/templates/$template/$folder/system/$element/$file";
+
+				if (file_exists(JPATH_BASE . $path))
+				{
+					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+				}
+
+				// Try to deal with system files in the media folder
+				$path = "/media/system/$folder/$element/$file";
+
+				if (file_exists(JPATH_BASE . $path))
+				{
+					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+				}
+				elseif (file_exists(JPATH_ROOT . $path))
+				{
+					return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
+				}
+			}
+			else
+			{
+				// Try to deals in the extension media folder
+				$path = "/media/$extension/$folder/$file";
+
+				if (file_exists(JPATH_BASE . $path))
+				{
+					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+				}
+				elseif (file_exists(JPATH_ROOT . $path))
+				{
+					return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
+				}
+
+				// Try to deal with system files in the template folder
+				$path = "/templates/$template/$folder/system/$file";
+
+				if (file_exists(JPATH_BASE . $path))
+				{
+					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+				}
+
+				// Try to deal with system files in the media folder
+				$path = "/media/system/$folder/$file";
+
+				if (file_exists(JPATH_BASE . $path))
+				{
+					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+				}
+				elseif (file_exists(JPATH_ROOT . $path))
+				{
+					return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
+				}
+			}
+		}
+		// Try to deal with system files in the media folder
+		else
+		{
+			$path = "/media/system/$folder/$file";
+
+			if (file_exists(JPATH_BASE . $path))
+			{
+				return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+			}
+			elseif (file_exists(JPATH_ROOT . $path))
+			{
+				return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
+			}
+		}
+
+		return null;
 	}
 
 	/**
