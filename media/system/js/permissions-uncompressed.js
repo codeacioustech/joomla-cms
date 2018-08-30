@@ -4,8 +4,7 @@
 function sendPermissions(event) {
 	// set the icon while storing the values
 	var icon = document.getElementById('icon_' + this.id);
-	icon.removeAttribute('class');
-	icon.setAttribute('style', 'background: url(../media/system/images/modal/spinner.gif); display: inline-block; width: 16px; height: 16px');
+	icon.setAttribute('class', 'spinner-icon-16');
 
 	//get values and prepare GET-Parameter
 	var asset = 'not';

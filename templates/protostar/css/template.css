@@ -6249,6 +6249,12 @@ th .tooltip-inner {
 .loading-layer {
 	background-image: url("../images/ajax-loader.gif");
 }
+.spinner-icon-16 {
+	background: url("../images/spinner.gif");
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
 div.modal {
 	position: fixed;
 	top: 5%;

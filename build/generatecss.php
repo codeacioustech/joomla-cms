@@ -9,7 +9,7 @@
 // Set flag that this is a parent file.
 const _JEXEC = 1;
 
-// Import namespaced classes
+// Import namespace'd classes
 use Joomla\CMS\Application\CliApplication;
 
 // Set fixed precision value to avoid round related issues
