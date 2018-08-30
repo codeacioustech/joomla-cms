@@ -1780,16 +1780,8 @@ class Installer extends \JAdapter
 		switch ($element->getName())
 		{
 			case 'media':
-				if ((string) $element->attributes()->destination)
-				{
-					$folder = (string) $element->attributes()->destination;
-				}
-				else
-				{
-					$folder = '';
-				}
-
-				$source = $client->path . '/media/' . $folder;
+				$folder = (string) $element->attributes()->destination;
+				$source = ($client ? $client->path : JPATH_ROOT)  . '/media/' . $folder;
 
 				break;
 

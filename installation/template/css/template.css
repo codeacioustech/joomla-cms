@@ -199,7 +199,7 @@ textarea.noResize {
     border: 1px solid #aaa;
     border-radius: 3px;
     box-shadow: none;
-    background: transparent url("../../../media/jui/css/chosen-sprite.png") no-repeat scroll 100% -20px
+    background: transparent url("../images/chosen-sprite.png") no-repeat scroll 100% -20px
 }
 .chzn-container .chzn-results li.highlighted {
   background-color: #0088cc;

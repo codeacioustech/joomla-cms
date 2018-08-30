@@ -28,7 +28,8 @@ JFactory::getDocument()->addScriptDeclaration(
 		jQuery("#jform_image").on("change", function() {
 			var flag = this.value;
 			if (flag) {
-				jQuery("#flag img").attr("src", "' . JUri::root(true) . '" + "/media/mod_languages/images/" + flag + ".gif").attr("alt", flag);
+				var en = ' . json_encode(JHtml::_('image', 'mod_languages/en.gif', null, null, true, 1)) . ';
+				jQuery("#flag img").attr("src", en.replace("en", flag)).attr("alt", flag);
 			}
 			else
 			{
