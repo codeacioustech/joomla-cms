@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die;
 
-/** @var JDocumentError $this */
+/** @var  \Joomla\CMS\Document\ErrorDocument $this */
 
 if (!isset($this->error))
 {
