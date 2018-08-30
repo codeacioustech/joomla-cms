@@ -574,6 +574,7 @@ class FileLayout extends BaseLayout
 	{
 		// Reset includePaths
 		$paths = array();
+		$app   = \JFactory::getApplication();
 
 		// (1 - highest priority) Received a custom high priority path
 		if ($this->basePath !== null)
@@ -587,23 +588,21 @@ class FileLayout extends BaseLayout
 		if (!empty($component))
 		{
 			// (2) Component template overrides path
-			$paths[] = JPATH_THEMES . '/' . \JFactory::getApplication()->getTemplate() . '/html/layouts/' . $component;
+			$paths[] = JPATH_THEMES . '/' . $app->getTemplate() . '/html/layouts/' . $component;
 
 			// (3) Component path
-			if ($this->options->get('client') == 0)
-			{
-				$paths[] = JPATH_SITE . '/components/' . $component . '/layouts';
-			}
-			else
-			{
-				$paths[] = JPATH_ADMINISTRATOR . '/components/' . $component . '/layouts';
-			}
+			$client = \JApplicationHelper::getClientInfo($this->options->get('client'));
+
+			$paths[] = ($client ? $client->path : JPATH_BASE) . '/components/' . $component . '/layouts';
 		}
 
-		// (4) Standard Joomla! layouts overriden
-		$paths[] = JPATH_THEMES . '/' . \JFactory::getApplication()->getTemplate() . '/html/layouts';
+		// (4) Standard Joomla! layouts override
+		$paths[] = JPATH_THEMES . '/' . $app->getTemplate() . '/html/layouts';
 
-		// (5 - lower priority) Frontend base layouts
+		// (5 - lower priority) Current base layouts
+		$paths[] = JPATH_BASE . '/layouts';
+
+		// (6 - lowest priority) Frontend base layouts
 		$paths[] = JPATH_ROOT . '/layouts';
 
 		return $paths;
