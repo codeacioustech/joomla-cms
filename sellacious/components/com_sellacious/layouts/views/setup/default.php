@@ -3,8 +3,8 @@
 JHtml::_('jquery.framework');
 JHtml::_('behavior.formvalidator');
 
-$this->document->addScript(JUri::base(true) . '/templates/sellacious/js/plugin/fuelux/wizard/wizard.js');
-$this->document->addScript(JUri::root(true) . '/media/com_sellacious/js/plugin/select2/select2.min.js');
+JHtml::_('script', 'templates/sellacious/js/plugin/fuelux/wizard/wizard.js', array('version' => S_VERSION_CORE));
+JHtml::_('script', 'com_sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 JHtml::_('stylesheet', 'com_sellacious/view.setup.css', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/view.setup.js', array('version' => S_VERSION_CORE, 'relative' => true));

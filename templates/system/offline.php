@@ -62,7 +62,8 @@ $twofactormethods = JAuthenticationHelper::getTwoFactorMethods();
 	<fieldset class="input">
 		<p id="form-login-username">
 			<label for="username"><?php echo JText::_('JGLOBAL_USERNAME'); ?></label>
-			<input name="username" id="username" type="text" class="inputbox" alt="<?php echo JText::_('JGLOBAL_USERNAME'); ?>" autocomplete="off" autocapitalize="none" />
+			<input name="username" id="username" type="text" class="inputbox"
+				   alt="<?php echo JText::_('JGLOBAL_USERNAME'); ?>" autocomplete="off" autocapitalize="none" />
 		</p>
 		<p id="form-login-password">
 			<label for="passwd"><?php echo JText::_('JGLOBAL_PASSWORD'); ?></label>

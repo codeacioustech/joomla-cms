@@ -310,8 +310,7 @@ class FOFIntegrationJoomlaPlatform extends FOFPlatform implements FOFPlatformInt
 				$directory = 'html/' . $component;
 			}
 
-			$path .= JFactory::getApplication()->getTemplate() .
-				'/' . $directory;
+			$path .= JFactory::getApplication()->getTemplate() . '/' . $directory;
 		}
 		else
 		{

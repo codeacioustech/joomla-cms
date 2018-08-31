@@ -179,12 +179,12 @@ class TemplateAdapter extends InstallerAdapter
 	 */
 	public function loadLanguage($path = null)
 	{
-		$source   = $this->parent->getPath('source');
-		$basePath = $this->parent->extension->client_id ? JPATH_ADMINISTRATOR : JPATH_SITE;
+		$source = $this->parent->getPath('source');
+		$cInfo  = \JApplicationHelper::getClientInfo($this->parent->extension->client_id);
 
 		if (!$source)
 		{
-			$this->parent->setPath('source', $basePath . '/templates/' . $this->parent->extension->element);
+			$this->parent->setPath('source', $cInfo->path . '/templates/' . $this->parent->extension->element);
 		}
 
 		$this->setManifest($this->parent->getManifest());
@@ -192,12 +192,9 @@ class TemplateAdapter extends InstallerAdapter
 		$client = (string) $this->getManifest()->attributes()->client;
 
 		// Load administrator language if not set.
-		if (!$client)
-		{
-			$client = 'ADMINISTRATOR';
-		}
+		$cInfo = \JApplicationHelper::getClientInfo($client, true);
+		$base  = $cInfo ? $cInfo->path : JPATH_BASE;
 
-		$base = constant('JPATH_' . strtoupper($client));
 		$extension = 'tpl_' . $this->getName();
 		$source    = $path ?: $base . '/templates/' . $this->getName();
 

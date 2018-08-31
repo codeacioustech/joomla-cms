@@ -176,12 +176,9 @@ class ChromestyleField extends \JFormFieldGroupedList
 
 		$templates = array($this->getSystemTemplate());
 		$templates = array_merge($templates, $this->getTemplates());
-		$path      = JPATH_ADMINISTRATOR;
 
-		if ($this->clientId === 0)
-		{
-			$path = JPATH_SITE;
-		}
+		$cInfo = \JApplicationHelper::getClientInfo($this->clientId);
+		$path  = $cInfo->path;
 
 		foreach ($templates as $template)
 		{

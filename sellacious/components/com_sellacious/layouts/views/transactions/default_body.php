@@ -19,7 +19,7 @@ JHtml::_('behavior.framework');
 JHtml::_('jquery.framework');
 JHtml::_('bootstrap.framework');
 
-JHtml::_('script', JPATH_SELLACIOUS_DIR . '/templates/sellacious/js/plugin/x-editable/x-editable.js', array('version' => S_VERSION_CORE));
+JHtml::_('script', 'templates/sellacious/js/plugin/x-editable/x-editable.js', array('version' => S_VERSION_CORE));
 JHtml::_('script', 'com_sellacious/view.transactions.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('stylesheet', 'com_sellacious/view.transactions.css', array('version' => S_VERSION_CORE, 'relative' => true));
 
