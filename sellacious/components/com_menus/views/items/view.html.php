@@ -206,8 +206,7 @@ class MenusViewItems extends SellaciousViewList
 		if (isset($vars['view']))
 		{
 			// Attempt to load the view xml file.
-			// Attempt to load the view xml file.
-			$baseDir = JPATH_SITE . '/' . JPATH_SELLACIOUS_DIR;
+			$baseDir = JPATH_SELLACIOUS;
 
 			$file    = $baseDir . '/components/' . $item->componentname . '/views/' . $vars['view'] . '/metadata.xml';
 

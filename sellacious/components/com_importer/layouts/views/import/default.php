@@ -18,7 +18,7 @@ JHtml::_('behavior.keepalive');
 JHtml::_('stylesheet', 'com_importer/view.import.css', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/util.tabstate.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_importer/view.import.js', array('version' => S_VERSION_CORE, 'relative' => true));
-JHtml::_('script', 'media/com_sellacious/js/plugin/serialize-object/jquery.serialize-object.min.js', array('version' => S_VERSION_CORE));
+JHtml::_('script', 'com_sellacious/plugin/serialize-object/jquery.serialize-object.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 $dispatcher = JEventDispatcher::getInstance();
 $app        = JFactory::getApplication();

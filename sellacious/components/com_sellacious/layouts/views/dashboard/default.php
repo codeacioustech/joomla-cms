@@ -13,7 +13,7 @@ defined('_JEXEC') or die;
 /** @var $this SellaciousViewDashboard */
 JHtml::_('jquery.framework');
 
-JHtml::_('script', JPATH_SELLACIOUS_DIR . '/templates/sellacious/js/plugin/sparkline/jquery.sparkline.min.js', array('version' => S_VERSION_CORE));
+JHtml::_('script', 'templates/sellacious/js/plugin/sparkline/jquery.sparkline.min.js', array('version' => S_VERSION_CORE));
 
 JHtml::_('script', 'com_sellacious/view.dashboard.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/view.dashboard.banners.js', array('version' => S_VERSION_CORE, 'relative' => true));
@@ -56,7 +56,8 @@ jQuery(document).ready(function () {
 </div>
 
 <div class="addproduct">
-	<a href="<?php echo JRoute::_('index.php?option=com_sellacious&task=product.add'); ?>" title="<?php echo JText::_('COM_SELLACIOUS_DASHBOARD_QUICK_LINKS_CREATE_NEW_PRODUCT'); ?>">
+	<a href="<?php echo JRoute::_('index.php?option=com_sellacious&task=product.add'); ?>"
+	   title="<?php echo JText::_('COM_SELLACIOUS_DASHBOARD_QUICK_LINKS_CREATE_NEW_PRODUCT'); ?>">
 		<i class="fa fa-plus"></i>
 	</a>
 </div>

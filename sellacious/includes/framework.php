@@ -33,7 +33,7 @@ if (!file_exists(JPATH_CONFIGURATION . '/configuration.php')
 	{
 		header('Location: ../installation/index.php');
 
-		exit();
+		exit;
 	}
 	else
 	{

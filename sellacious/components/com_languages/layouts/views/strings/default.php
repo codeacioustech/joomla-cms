@@ -19,7 +19,7 @@ JHtml::_('stylesheet', 'com_languages/view.strings.css', array('version' => S_VE
 
 // Load the behaviors
 $doc = JFactory::getDocument();
-$doc->addScript(JUri::root(true) . '/media/com_sellacious/js/plugin/select2/select2.min.js');
+JHtml::_('script', 'com_sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 $listOrder      = $this->escape($this->state->get('list.ordering'));
 $listDirn       = $this->escape($this->state->get('list.direction'));
