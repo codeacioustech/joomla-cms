@@ -15,10 +15,10 @@ array_pop($parts);
 // Defines
 define('JPATH_ROOT',          implode(DIRECTORY_SEPARATOR, $parts));
 define('JPATH_SITE',          JPATH_ROOT);
-define('JPATH_CONFIGURATION', JPATH_ROOT);
 define('JPATH_INSTALLATION',  JPATH_ROOT . '/installation');
 define('JPATH_ADMINISTRATOR', JPATH_ROOT . '/administrator');
 
+define('JPATH_CONFIGURATION', JPATH_BASE);
 define('JPATH_LIBRARIES',     JPATH_BASE . '/libraries');
 define('JPATH_PLUGINS',       JPATH_BASE . '/plugins');
 define('JPATH_CACHE',         JPATH_BASE . '/cache');
