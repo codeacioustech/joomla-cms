@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
 
 use Joomla\Registry\Registry;
 
-/** @var JDocumentError $this */
+/** @var  \Joomla\CMS\Document\ErrorDocument  $this */
 
 // Getting params from template
 $params = JFactory::getApplication()->getTemplate(true)->params;
