@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="stock" label="COM_SELLACIOUS_CATEGORY_FIELDSET_STOCK">
+		<fields name="params">
+			<field
+				name="stock_management"
+				type="radio"
+				default="global"
+				label="COM_SELLACIOUS_CONFIG_FIELD_STOCK_MANAGEMENT_LABEL"
+				description="COM_SELLACIOUS_CONFIG_FIELD_STOCK_MANAGEMENT_DESC">
+				<option value="global">COM_SELLACIOUS_CONFIG_FIELD_STOCK_MANAGEMENT_OPTION_GLOBAL</option>
+				<option value="category">COM_SELLACIOUS_CONFIG_FIELD_STOCK_MANAGEMENT_OPTION_CATEGORY</option>
+				<option value="product">COM_SELLACIOUS_CONFIG_FIELD_STOCK_MANAGEMENT_OPTION_PRODUCT</option>
+				<option class="hidden" value="none">COM_SELLACIOUS_CONFIG_FIELD_STOCK_MANAGEMENT_OPTION_NONE</option>
+			</field>
+			<field
+				name="stock_default"
+				type="number"
+				label="COM_SELLACIOUS_CONFIG_FIELD_STOCK_DEFAULT_LABEL"
+				description="COM_SELLACIOUS_CONFIG_FIELD_STOCK_DEFAULT_DESC"
+				class="inputbox small-input"
+				default="1"
+			/>
+			<field
+				name="stock_over_default"
+				type="number"
+				label="COM_SELLACIOUS_CONFIG_FIELD_STOCK_OVER_DEFAULT_LABEL"
+				description="COM_SELLACIOUS_CONFIG_FIELD_STOCK_OVER_DEFAULT_DESC"
+				class="inputbox small-input"
+				default="0"
+			/>
+		</fields>
+	</fieldset>
+
+	<fieldset name="commission" label="COM_SELLACIOUS_CATEGORY_FIELDSET_COMMISSION">
+		<field
+			name="seller_commission"
+			type="CategoryCommission"
+			label="COM_SELLACIOUS_CATEGORY_FIELD_SELLER_COMMISSION_LABEL"
+			description="COM_SELLACIOUS_CATEGORY_FIELD_SELLER_COMMISSION_DESC"
+			currency="global"
+		/>
+	</fieldset>
+</form>
