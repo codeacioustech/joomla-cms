@@ -109,8 +109,8 @@ class MenusModelMenutypes extends JModelLegacy
 
 						if (isset($option->request['option']))
 						{
-							$componentLanguageFolder = JPATH_SITE . '/' . JPATH_SELLACIOUS_DIR . '/components/' . $option->request['option'];
-							$lang->load($option->request['option'] . '.sys', JPATH_SITE . '/' . JPATH_SELLACIOUS_DIR, null, false, true)
+							$componentLanguageFolder = JPATH_SELLACIOUS . '/components/' . $option->request['option'];
+							$lang->load($option->request['option'] . '.sys', JPATH_SELLACIOUS, null, false, true)
 								||	$lang->load($option->request['option'] . '.sys', $componentLanguageFolder, null, false, true);
 						}
 					}
@@ -387,7 +387,7 @@ class MenusModelMenutypes extends JModelLegacy
 	protected function getTypeOptionsFromManifest($component)
 	{
 		// Load the component manifest
-		$fileName = JPATH_SITE . '/' . JPATH_SELLACIOUS_DIR . '/components/' . $component . '/' . str_replace('com_', '', $component) . '.xml';
+		$fileName = JPATH_SELLACIOUS . '/components/' . $component . '/' . str_replace('com_', '', $component) . '.xml';
 
 		if (!is_file($fileName))
 		{

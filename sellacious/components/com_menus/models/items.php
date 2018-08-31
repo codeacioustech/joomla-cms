@@ -519,8 +519,8 @@ class MenusModelItems extends JModelList
 				{
 					if ($extension = $item->componentname)
 					{
-						$lang->load("$extension.sys", JPATH_SITE . '/' . JPATH_SELLACIOUS_DIR, null, false, true)
-						|| $lang->load("$extension.sys", JPATH_SITE . '/' . JPATH_SELLACIOUS_DIR . '/components/' . $extension, null, false, true);
+						$lang->load("$extension.sys", JPATH_SELLACIOUS, null, false, true)
+						|| $lang->load("$extension.sys", JPATH_SELLACIOUS . '/components/' . $extension, null, false, true);
 					}
 
 					// Translate component name

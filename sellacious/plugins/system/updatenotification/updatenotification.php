@@ -197,7 +197,7 @@ class PlgSystemUpdatenotification extends JPlugin
 		 * language preference, in this order. This ensures that we'll never end up with untranslated strings in the
 		 * update email which would make Joomla! seem bad. So, please, if you don't fully understand what the
 		 * following code does DO NOT TOUCH IT. It makes the difference between a hobbyist CMS and a professional
-		 * solution! 
+		 * solution!
 		 */
 		$jLanguage = JFactory::getLanguage();
 		$jLanguage->load('plg_system_updatenotification', JPATH_ADMINISTRATOR, 'en-GB', true, true);
@@ -393,18 +393,16 @@ class PlgSystemUpdatenotification extends JPlugin
 	 */
 	private function clearCacheGroups(array $clearGroups, array $cacheClients = array(0, 1))
 	{
-		$conf = JFactory::getConfig();
-
 		foreach ($clearGroups as $group)
 		{
 			foreach ($cacheClients as $client_id)
 			{
 				try
 				{
+					$cInfo   = JApplicationHelper::getClientInfo($client_id);
 					$options = array(
 						'defaultgroup' => $group,
-						'cachebase'    => $client_id ? JPATH_ADMINISTRATOR . '/cache' :
-							$conf->get('cache_path', JPATH_SITE . '/cache')
+						'cachebase'    => ($cInfo ?  $cInfo->path : JPATH_BASE) . '/cache',
 					);
 
 					$cache = JCache::getInstance('callback', $options);

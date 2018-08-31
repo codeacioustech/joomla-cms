@@ -57,11 +57,31 @@ class ModLoginHelper
 	 * Get list of available two factor methods
 	 *
 	 * @return  array
+	 *
+	 * @since   __DEPLOY_VERSION__
 	 */
 	public static function getTwoFactorMethods()
 	{
-		require_once JPATH_ADMINISTRATOR . '/components/com_users/helpers/users.php';
+		FOFPlatform::getInstance()->importPlugin('twofactorauth');
+		$identities = FOFPlatform::getInstance()->runPlugins('onUserTwofactorIdentify', array());
 
-		return UsersHelper::getTwoFactorMethods();
+		$options = array(
+			JHtml::_('select.option', 'none', JText::_('JGLOBAL_OTPMETHOD_NONE'), 'value', 'text'),
+		);
+
+		if (!empty($identities))
+		{
+			foreach ($identities as $identity)
+			{
+				if (!is_object($identity))
+				{
+					continue;
+				}
+
+				$options[] = JHtml::_('select.option', $identity->method, $identity->title, 'value', 'text');
+			}
+		}
+
+		return $options;
 	}
 }
