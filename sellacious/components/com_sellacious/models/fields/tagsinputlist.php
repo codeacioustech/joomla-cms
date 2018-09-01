@@ -35,7 +35,7 @@ class JFormFieldTagsInputList extends JFormFieldList
 	protected function getInput()
 	{
 		JHtml::_('jquery.framework');
-		JHtml::_('script', 'media/com_sellacious/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js', array('version' => S_VERSION_CORE));
+		JHtml::_('script', 'sellacious/plugin/bootstrap-tags/bootstrap-tagsinput.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 		$html = array();
 		$attr = ' data-role="tagsinput" multiple';

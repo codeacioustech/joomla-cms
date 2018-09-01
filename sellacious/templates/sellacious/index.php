@@ -48,8 +48,8 @@ JFactory::getDocument()->addScriptOptions('sellacious.jarvis_site', $helper->cor
 		<link rel="icon" href="<?php echo $favicon ?>" type="image/x-icon" />
 
 		<?php
-		JHtml::_('script', 'media/com_sellacious/js/plugin/messagebox/jquery.messagebox.min.js', array('version' => S_VERSION_CORE));
-		JHtml::_('stylesheet', 'media/com_sellacious/js/plugin/messagebox/jquery.messagebox.css', null, false);
+		JHtml::_('script', 'media/sellacious/js/plugin/messagebox/jquery.messagebox.min.js', array('version' => S_VERSION_CORE));
+		JHtml::_('stylesheet', 'media/sellacious/js/plugin/messagebox/jquery.messagebox.css', array('version' => S_VERSION_CORE));
 		JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', array('version' => S_VERSION_CORE, 'relative' => true));
 
 		$doc->addStyleSheet('//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700');

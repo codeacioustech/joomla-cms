@@ -23,16 +23,18 @@ class JFormFieldTagsInputText extends JFormFieldText
 	protected $type = 'TagsInputText';
 
 	/**
-	 * Method to get the field input markup.
+	 * Method to get the field input markup
 	 *
-	 * @return  string  The field input markup.
+	 * @return  string  The field input markup
 	 *
 	 * @since   11.1
 	 */
 	protected function getInput()
 	{
 		JHtml::_('jquery.framework');
-		JHtml::_('script', 'media/com_sellacious/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js', array('version' => S_VERSION_CORE));
+
+		JHtml::_('script', 'sellacious/plugin/bootstrap-tags/bootstrap-tagsinput.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
+		JHtml::_('script', 'sellacious/plugin/bootstrap-tags/bootstrap-tagsinput.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 		// Translate placeholder text
 		$hint = $this->translateHint ? JText::_($this->hint) : $this->hint;
