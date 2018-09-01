@@ -16,7 +16,7 @@ use Joomla\Utilities\ArrayHelper;
 /** @var SellaciousViewOrder $this */
 JHtml::_('jquery.framework');
 
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.component.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.order.print.css', null, true);
 

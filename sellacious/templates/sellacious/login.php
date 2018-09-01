@@ -22,9 +22,9 @@ $doc      = JFactory::getDocument();
 $sitename = $app->get('sitename');
 
 // $doc->addStyleSheet('http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700');
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', array('version' => S_VERSION_CORE, 'relative' => true));
 
 $doc->addStyleSheet('templates/sellacious/css/bootstrap.min.css', 'text/css', 'screen');
-$doc->addStyleSheet('templates/sellacious/css/font-awesome.min.css', 'text/css', 'screen');
 
 // SmartAdmin Styles - Please note (smartadmin-production.css) was created using LESS variables
 $doc->addStyleSheet('templates/sellacious/css/smartadmin-production.css', 'text/css', 'screen');

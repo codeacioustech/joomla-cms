@@ -19,7 +19,7 @@ JHtml::_('jquery.framework');
 JHtml::_('script', 'com_sellacious/util.noframes.js', false, true);
 
 JHtml::_('stylesheet', 'com_sellacious/util.rating.css', null, true);
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.stores.css', null, true);
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_sellacious&view=stores'); ?>" method="post" name="adminForm" id="adminForm">

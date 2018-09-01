@@ -15,7 +15,7 @@ JHtml::_('behavior.formvalidator');
 JHtml::_('script', 'com_sellacious/util.noframes.js', false, true);
 JHtml::_('script', 'com_sellacious/util.validator-mobile.js', false, true);
 
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.component.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.seller.css', null, true);
 ?>

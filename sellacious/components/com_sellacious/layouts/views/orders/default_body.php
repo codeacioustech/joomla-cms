@@ -21,7 +21,6 @@ JHtml::_('script', 'com_sellacious/view.orders.js', array('version' => S_VERSION
 
 JHtml::_('stylesheet', 'com_sellacious/component.css', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('stylesheet', 'com_sellacious/view.orders.css', array('version' => S_VERSION_CORE, 'relative' => true));
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', array('version' => S_VERSION_CORE, 'relative' => true));
 
 $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirn  = $this->escape($this->state->get('list.direction'));

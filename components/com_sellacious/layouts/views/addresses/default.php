@@ -24,7 +24,7 @@ JHtml::_('script', 'com_sellacious/fe.view.addresses.js', false, true);
 
 JHtml::_('stylesheet', 'com_sellacious/fe.component.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.addresses.css', null, true);
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 
 JText::script('COM_SELLACIOUS_USER_CONFIRM_ADDRESS_REMOVE_MESSAGE');
 

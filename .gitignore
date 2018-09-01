@@ -18,6 +18,9 @@
 /.htaccess
 /web.config
 /.php_cs.cache
+/sellacious/tmp
+/sellacious/logs
+/sellacious/cache
 
 # Test Related Files #
 /phpunit.xml

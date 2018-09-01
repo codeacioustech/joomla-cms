@@ -19,7 +19,7 @@ JHtml::_('jquery.framework');
 JHtml::_('script', 'media/com_sellacious/js/plugin/serialize-object/jquery.serialize-object.min.js', false, false);
 JHtml::_('script', 'com_sellacious/fe.view.order.payment.js', true, true);
 
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.component.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.order.payment.css', null, true);
 

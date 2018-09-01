@@ -23,7 +23,7 @@ JHtml::_('script', 'com_sellacious/fe.view.sellacious.js', false, true);
 JHtml::_('script', 'com_sellacious/util.cart.aio.js', false, true);
 JHtml::_('script', 'com_sellacious/fe.view.wishlist.js', false, true);
 
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.component.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/util.rating.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.wishlist.css', null, true);

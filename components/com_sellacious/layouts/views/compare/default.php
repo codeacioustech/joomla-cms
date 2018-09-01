@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 
 /** @var  SellaciousViewCompare $this */
 JHtml::_('script', 'com_sellacious/util.noframes.js', false, true);
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 
 $items = $this->items;
 

@@ -18,7 +18,7 @@ JHtml::_('script', 'com_sellacious/util.noframes.js', false, true);
 
 JHtml::_('script', 'media/com_sellacious/js/plugin/select2-3.5/select2.js', false, false);
 JHtml::_('stylesheet', 'media/com_sellacious/js/plugin/select2-3.5/select2.css', null, false);
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 
 JHtml::_('script', 'media/com_sellacious/js/plugin/serialize-object/jquery.serialize-object.min.js', false, false);
 JHtml::_('script', 'com_sellacious/util.cart.aio.js', false, true);

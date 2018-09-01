@@ -28,7 +28,7 @@ JHtml::_('script', 'com_sellacious/fe.view.sellacious.js', false, true);
 JHtml::_('script', 'com_sellacious/isotope.pkgd.min.js', false, true);
 JHtml::_('script', 'com_sellacious/fe.view.products.js', false, true);
 
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.component.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.cart.aio.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.categories.products.css', null, true);
@@ -92,7 +92,7 @@ $imgS = $this->helper->config->get('products_image_size_adjust') ?: 'contain';
 		height: <?php echo $imgH ?>px;
 		background-size: <?php echo $imgS ?>;
 	}
-	
+
 	@media (max-width: 767px) {
 		.list-layout .product-box .image-box .product-img {
 			height: <?php echo $imgH ?>px;

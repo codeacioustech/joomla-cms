@@ -29,7 +29,7 @@ JHtml::_('script', 'com_sellacious/fe.view.product.js', true, true);
 JHtml::_('script', 'media/com_sellacious/js/plugin/select2-3.5/select2.js', false, false);
 JHtml::_('stylesheet', 'media/com_sellacious/js/plugin/select2-3.5/select2.css', null, false);
 
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.component.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/util.rating.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.cart.aio.css', null, true);

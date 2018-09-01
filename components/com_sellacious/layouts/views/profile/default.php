@@ -20,7 +20,7 @@ JHtml::_('bootstrap.loadCss');
 
 JText::script('COM_SELLACIOUS_VALIDATION_FORM_FAILED');
 
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.profile.css', null, true);
 
 $fieldsets = $this->get('form')->getFieldsets();

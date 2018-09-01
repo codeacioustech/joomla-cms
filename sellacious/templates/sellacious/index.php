@@ -50,10 +50,10 @@ JFactory::getDocument()->addScriptOptions('sellacious.jarvis_site', $helper->cor
 		<?php
 		JHtml::_('script', 'media/com_sellacious/js/plugin/messagebox/jquery.messagebox.min.js', array('version' => S_VERSION_CORE));
 		JHtml::_('stylesheet', 'media/com_sellacious/js/plugin/messagebox/jquery.messagebox.css', null, false);
+		JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', array('version' => S_VERSION_CORE, 'relative' => true));
 
 		$doc->addStyleSheet('//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700');
 		$doc->addStyleSheet('templates/sellacious/css/bootstrap.min.css', array('version' => $version));
-		$doc->addStyleSheet('templates/sellacious/css/font-awesome.min.css', array('version' => $version));
 		$doc->addStyleSheet('templates/sellacious/css/joomla-icons.css', array('version' => $version));
 
 		$doc->addStyleSheet('templates/sellacious/css/jquery.mCustomScrollbar.min.css', array('version' => $version));

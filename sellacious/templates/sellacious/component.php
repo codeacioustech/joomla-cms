@@ -32,9 +32,10 @@ $body_class .= $this->params->get('fixed_ribbon') ? 'fixed-ribbon ' : '';
 $body_class .= $this->params->get('fixed_footer') ? 'fixed-page-footer ' : '';
 $body_class .= $this->params->get('minified') ? 'minified ' : '';
 
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', array('version' => S_VERSION_CORE, 'relative' => true));
+
 $doc->addStyleSheet('//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700');
 $doc->addStyleSheet('templates/sellacious/css/bootstrap.min.css', array('version' => $version));
-$doc->addStyleSheet('templates/sellacious/css/font-awesome.min.css', array('version' => $version));
 $doc->addStyleSheet('templates/sellacious/css/smartadmin-production.css', array('version' => $version));
 $doc->addStyleSheet('templates/sellacious/css/smartadmin-skins.css', array('version' => $version));
 $doc->addStyleSheet('templates/sellacious/css/joomla-icons.css', array('version' => $version));

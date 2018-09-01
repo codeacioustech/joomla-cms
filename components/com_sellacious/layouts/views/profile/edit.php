@@ -23,7 +23,7 @@ JHtml::_('behavior.formvalidator');
 JText::script('COM_SELLACIOUS_VALIDATION_FORM_FAILED');
 
 JHtml::_('script', 'com_sellacious/util.validator-mobile.js', false, true);
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.profile.css', null, true);
 
 $fieldsets = $this->form->getFieldsets();

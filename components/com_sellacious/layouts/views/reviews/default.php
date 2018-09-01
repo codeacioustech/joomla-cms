@@ -30,7 +30,7 @@ JHtml::_('script', 'com_sellacious/fe.view.orders.tile.js', true, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.component.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/util.rating.css', null, true);
 JHtml::_('stylesheet', 'com_sellacious/fe.view.reviews.css', null, true);
-JHtml::_('stylesheet', 'com_sellacious/font-awesome.min.css', null, true);
+JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', null, true);
 
 $reviews     = $this->items;
 $link_detail = $this->helper->config->get('product_detail_page');
