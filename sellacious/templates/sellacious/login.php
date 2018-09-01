@@ -55,7 +55,6 @@ $doc->addScript('templates/sellacious/js/plugin/easy-pie-chart/jquery.easy-pie-c
 $doc->addScript('templates/sellacious/js/plugin/sparkline/jquery.sparkline.min.js');            // SPARKLINES
 $doc->addScript('templates/sellacious/js/plugin/jquery-validate/jquery.validate.min.js');        // JQUERY VALIDATE
 $doc->addScript('templates/sellacious/js/plugin/masked-input/jquery.maskedinput.min.js');        // JQUERY MASKED INPUT
-$doc->addScript('templates/sellacious/js/plugin/select2/select2.min.js');                        // JQUERY SELECT2 INPUT
 $doc->addScript('templates/sellacious/js/plugin/bootstrap-slider/bootstrap-slider.min.js');        // JQUERY UI + Bootstrap Slider
 $doc->addScript('templates/sellacious/js/plugin/msie-fix/jquery.mb.browser.min.js');            // browser msie issue fix
 $doc->addScript('templates/sellacious/js/plugin/fastclick/fastclick.js');                        // FastClick: For mobile devices

@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 
 JHtml::_('jquery.framework');
 
-JHtml::_('script', 'media/com_sellacious/js/plugin/cookie/jquery.cookie.js', array('version' => S_VERSION_CORE));
+JHtml::_('script', 'sellacious/plugin/cookie/jquery.cookie.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/view.permissions.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('stylesheet', 'com_sellacious/view.component.css', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('stylesheet', 'com_sellacious/view.permissions.css', array('version' => S_VERSION_CORE, 'relative' => true));

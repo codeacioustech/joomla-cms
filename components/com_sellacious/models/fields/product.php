@@ -37,8 +37,8 @@ class JFormFieldProduct extends JFormFieldHidden
 
 		if (JFactory::getApplication()->isSite())
 		{
-			JHtml::_('script', 'media/com_sellacious/js/plugin/select2/select2.min.js', false, false);
-			JHtml::_('stylesheet', 'media/com_sellacious/js/plugin/select2/select2.css', null, false);
+			JHtml::_('script', 'sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
+			JHtml::_('stylesheet', 'sellacious/plugin/select2/select2.css', array('version' => S_VERSION_CORE, 'relative' => true));
 		}
 
 		JHtml::_('script', 'com_sellacious/field.product.js', false, true);

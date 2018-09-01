@@ -1,13 +1,20 @@
 <?php
-
+/**
+ * @version     1.6.0
+ * @package     sellacious
+ *
+ * @copyright   Copyright (C) 2012-2018 Bhartiy Web Technologies. All rights reserved.
+ * @license     SPL Sellacious Private License; see http://www.sellacious.com/spl.html
+ * @author      Izhar Aazmi <info@bhartiy.com> - http://www.bhartiy.com
+ */
 JHtml::_('jquery.framework');
 JHtml::_('behavior.formvalidator');
 
 JHtml::_('script', 'templates/sellacious/js/plugin/fuelux/wizard/wizard.js', array('version' => S_VERSION_CORE));
-JHtml::_('script', 'com_sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
+JHtml::_('script', 'sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
+JHtml::_('script', 'com_sellacious/view.setup.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 JHtml::_('stylesheet', 'com_sellacious/view.setup.css', array('version' => S_VERSION_CORE, 'relative' => true));
-JHtml::_('script', 'com_sellacious/view.setup.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 $fieldsets = array_values($this->form->getFieldsets());
 ?>

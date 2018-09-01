@@ -13,9 +13,8 @@ defined('_JEXEC') or die;
 /** @var  SellaciousViewActivation  $this */
 JHtml::_('behavior.formvalidator');
 
-$this->document->addScript('templates/sellacious/js/plugin/bootstrap-wizard/jquery.bootstrap.wizard.js');
-$this->document->addScript('templates/sellacious/js/plugin/jquery-validate/jquery.validate.min.js');
-
+JHtml::_('script', 'sellacious/plugin/bootstrap-wizard/jquery.bootstrap.wizard.js', array('version' => S_VERSION_CORE, 'relative' => true));
+JHtml::_('script', 'sellacious/plugin/jquery-validate/jquery.validate.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/util.activation.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/view.activation.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('stylesheet', 'com_sellacious/view.activation.css', array('version' => S_VERSION_CORE, 'relative' => true));

@@ -75,9 +75,10 @@ JFactory::getDocument()->addScriptOptions('sellacious.jarvis_site', $helper->cor
 		$doc->addScript('templates/sellacious/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js', array('version' => $version)); // JS TOUCH plugin for mobile drag-drop touch events
 		$doc->addScript('templates/sellacious/js/plugin/msie-fix/jquery.mb.browser.min.js', array('version' => $version));         // browser msie issue fix
 		$doc->addScript('templates/sellacious/js/notification/SmartNotification.min.js', array('version' => $version));            // Custom notification
-		$doc->addScript('templates/sellacious/js/plugin/cookie/jquery.cookie.min.js', array('version' => $version));               // cookie
 		$doc->addScript('templates/sellacious/js/sellacious-core.js', array('version' => $version));                               // Sellacious core functions to work template wide
 		$doc->addScript('templates/sellacious/js/sellacious-notifier.js', array('version' => $version));                           // Sellacious notification per view page
+
+		JHtml::_('script', 'sellacious/plugin/cookie/jquery.cookie.js', array('version' => S_VERSION_CORE, 'relative' => true));
 		?>
 
 		<script data-pace-options='{"restartOnRequestAfter": true}' src="templates/sellacious/js/plugin/pace/pace.min.js"></script>

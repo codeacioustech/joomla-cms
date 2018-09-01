@@ -18,7 +18,7 @@ JHtml::_('jquery.framework');
 
 JHtml::_('stylesheet', 'com_sellacious/view.products.css', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/view.products.js', array('version' => S_VERSION_CORE, 'relative' => true));
-JHtml::_('script', 'com_sellacious/plugin/clipboardjs/clipboard.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
+JHtml::_('script', 'sellacious/plugin/clipboardjs/clipboard.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 $listOrder  = $this->escape($this->state->get('list.ordering'));
 $listDirn   = $this->escape($this->state->get('list.direction'));

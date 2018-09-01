@@ -16,8 +16,8 @@ JHtml::_('behavior.keepalive');
 JHtml::_('bootstrap.tooltip');
 JHtml::_('behavior.formvalidator');
 
-JHtml::_('script', 'media/com_sellacious/js/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE));
-JHtml::_('script', 'media/com_sellacious/js/plugin/cookie/jquery.cookie.js', array('version' => S_VERSION_CORE));
+JHtml::_('script', 'sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
+JHtml::_('script', 'sellacious/plugin/cookie/jquery.cookie.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/util.tabstate.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/util.number_format.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/util.float-val.js', array('version' => S_VERSION_CORE, 'relative' => true));

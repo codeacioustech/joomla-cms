@@ -18,8 +18,7 @@ JHtml::_('script', 'com_languages/view.strings.js', array('version' => S_VERSION
 JHtml::_('stylesheet', 'com_languages/view.strings.css', array('version' => S_VERSION_CORE, 'relative' => true));
 
 // Load the behaviors
-$doc = JFactory::getDocument();
-JHtml::_('script', 'com_sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
+JHtml::_('script', 'sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 $listOrder      = $this->escape($this->state->get('list.ordering'));
 $listDirn       = $this->escape($this->state->get('list.direction'));

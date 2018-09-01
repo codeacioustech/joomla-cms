@@ -20,9 +20,7 @@ JHtml::_('jquery.framework');
 
 JHtml::_('behavior.multiselect');
 JHtml::_('bootstrap.tooltip');
-
-$doc = JFactory::getDocument();
-$doc->addScript(JUri::root(true) . '/media/com_sellacious/js/plugin/select2/select2.min.js');
+JHtml::_('script', 'sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 $listOrder      = $that->escape($data->state->get('list.ordering'));
 $listDirn       = $that->escape($data->state->get('list.direction'));

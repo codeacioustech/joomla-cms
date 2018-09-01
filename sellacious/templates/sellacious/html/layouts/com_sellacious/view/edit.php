@@ -16,7 +16,7 @@ JHtml::_('behavior.keepalive');
 JHtml::_('bootstrap.tooltip');
 JHtml::_('behavior.formvalidator');
 
-JHtml::_('script', 'media/com_sellacious/js/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE));
+JHtml::_('script', 'sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 JText::script('COM_SELLACIOUS_VALIDATION_FORM_FAILED');
 /** @var array $displayData */

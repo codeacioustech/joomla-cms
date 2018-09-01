@@ -15,9 +15,7 @@ JHtml::_('jquery.framework');
 JHtml::_('behavior.multiselect');
 JHtml::_('bootstrap.tooltip');
 
-$doc = JFactory::getDocument();
-$doc->addScript(JUri::root(true) . '/media/com_sellacious/js/plugin/select2/select2.min.js');
-
+JHtml::_('script', 'sellacious/plugin/select2/select2.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('script', 'com_sellacious/util.modal.js', array('version' => S_VERSION_CORE, 'relative' => true));
 JHtml::_('stylesheet', 'com_sellacious/util.modal.css', array('version' => S_VERSION_CORE, 'relative' => true));
 

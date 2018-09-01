@@ -58,7 +58,7 @@ $doc->addScript('templates/sellacious/js/notification/SmartNotification.min.js',
 // Include Sparklines and charts
 $doc->addScript('templates/sellacious/js/plugin/sparkline/jquery.sparkline.min.js', array('version' => $version));
 // Select2 behaviour
-$doc->addScript('templates/sellacious/js/plugin/select2/select2.min.js', array('version' => $version));
+JHtml::_('script', 'sellacious/plugin/select2/select2.min.js', array('version' => $version, 'relative' => true));
 
 $sitename = $app->get('sitename');
 

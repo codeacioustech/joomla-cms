@@ -13,7 +13,7 @@ use Joomla\Registry\Registry;
 defined('_JEXEC') or die;
 
 JHtml::_('script', 'com_sellacious/view.productbuttons.js', array('version' => S_VERSION_CORE, 'relative' => true));
-JHtml::_('script', 'com_sellacious/plugin/clipboardjs/clipboard.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
+JHtml::_('script', 'sellacious/plugin/clipboardjs/clipboard.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 JText::script('COM_SELLACIOUS_PRODUCT_BUTTON_CHECKOUT_OPTION_BUY_NOW');
 JText::script('COM_SELLACIOUS_PRODUCT_BUTTON_CHECKOUT_OPTION_ADD_TO_CART');
