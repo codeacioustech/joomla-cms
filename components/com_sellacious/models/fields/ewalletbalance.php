@@ -65,10 +65,10 @@ class JFormFieldEwalletBalance extends JFormField
 		</style>
 		<script>
 		jQuery(function($) {
-		    if ($('script[src="{$jsFile}"]').length == 0) {
+		    if ($('script[src="{$jsFile}"]').length === 0) {
 		        $.getScript('{$jsFile}', function() {
 		            jQuery(document).ready(function() {
-					    if (typeof JFormFieldEwalletBalance != 'undefined') {
+					    if (typeof JFormFieldEwalletBalance !== 'undefined') {
 							var o = new JFormFieldEwalletBalance;
 							o.setup({id: '{$this->id}', token: '{$token}', user_id: '{$user->id}'});
 						}

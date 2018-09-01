@@ -47,9 +47,9 @@ if ($saveOrder)
 
 	Joomla.submitbutton = function(task) {
 		var f = document.adminForm;
-		if (task == '<?php echo $data->name ?>.delete') {
-			var cb='';
-			<?php foreach ($data->items as $i=>$item):?>
+		if (task === '<?php echo $data->name ?>.delete') {
+			var cb;
+			<?php foreach ($data->items as $i=>$item): ?>
 				cb = f['cb'+<?php echo $i;?>];
 				if (cb && cb.checked) {
 					if (confirm("<?php echo JText::_('COM_SELLACIOUS_' . strtoupper($data->name) . '_CONFIRM_DELETE') ?>")) {
@@ -134,8 +134,8 @@ if ($saveOrder)
 					$parentsStr = "";
 				}
 				?>
-			<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->parent_id;?>" item-id="<?php echo $item->id?>"
-			    parents="<?php echo $parentsStr ?>" level="<?php echo $item->level?>">
+			<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->parent_id;?>"
+				item-id="<?php echo $item->id?>" parents="<?php echo $parentsStr ?>" level="<?php echo $item->level ?>">
 				<td class="order nowrap center hidden-phone">
 					<?php
 					$iconClass = '';

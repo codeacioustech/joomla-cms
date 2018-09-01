@@ -300,7 +300,7 @@ var JFormFieldDocument = function () {
 			var $id = '#' + that.options.wrapper;
 			var t = that.options.target;
 
-			if (typeof t.limit != 'undefined') {
+			if (typeof t.limit !== 'undefined') {
 				var limit = t.limit;
 				if (limit) {
 					var item_count = $($id).find('.jff-document-list').find('li').length;

@@ -26,7 +26,7 @@ $images  = $field->value ? (array) $field->value : array();
 			</div><?php
 		}
 		?><div class="superbox-list-add bg-color-white">
-			<img src="<?php echo JUri::root(true) . '/media/com_sellacious/images/add-icon.png' ?>" class="jffci-add" style="padding: 20%;">
+			<?php echo JHtml::_('image', 'com_sellacious/add-icon.png', null, ' class="jffci-add" style="padding: 20%;" ', true); ?>
 		</div><!--
 		--><div class="superbox-float"></div>
 	</div>

@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 
 // Include the login functions only once
 JLoader::register('ModLoginHelper', __DIR__ . '/helper.php');
-JLoader::register('UsersHelperRoute', dirname(__DIR__) . '/helpers/route.php');
+JLoader::register('UsersHelperRoute', __DIR__ . '/helpers/route.php');
 
 /** @var  $params  Joomla\Registry\Registry  */
 $params->def('greeting', 1);

@@ -265,7 +265,7 @@ class JFormFieldCalendar extends JFormField
 	 *
 	 * @return  array
 	 *
-	 * @since  3.7.0
+	 * @since   3.7.0
 	 */
 	protected function getLayoutData()
 	{

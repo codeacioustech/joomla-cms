@@ -168,12 +168,11 @@ echo '	<input type="text" name="' . $name . '" id="' . $id . '" value="'
 	. JUri::root() . '"/>';
 
 ?>
-<a class="modal btn" title="<?php echo JText::_('JLIB_FORM_BUTTON_SELECT'); ?>" href="
-<?php echo ($readonly ? ''
+<a class="modal btn" title="<?php echo JText::_('JLIB_FORM_BUTTON_SELECT'); ?>" href="<?php echo ($readonly ? ''
 		: ($link ?: 'index.php?option=com_media&amp;view=images&amp;tmpl=component&amp;asset=' . $asset . '&amp;author='
-	. $authorField) . '&amp;fieldid=' . $id . '&amp;folder=' . $folder) . '"'
-	. ' rel="{handler: \'iframe\', size: {x: 800, y: 500}}"'; ?>>
- <?php echo JText::_('JLIB_FORM_BUTTON_SELECT'); ?></a><a class="btn hasTooltip" title="<?php echo JText::_('JLIB_FORM_BUTTON_CLEAR'); ?>" href="#" onclick="jInsertFieldValue('', '<?php echo $id; ?>'); return false;">
+	. $authorField) . '&amp;fieldid=' . $id . '&amp;folder=' . $folder) ?>"
+	<?php echo ' rel="{handler: \'iframe\', size: {x: 800, y: 500}}"'; ?>><?php echo JText::_('JLIB_FORM_BUTTON_SELECT'); ?></a>
+<a class="btn hasTooltip" title="<?php echo JText::_('JLIB_FORM_BUTTON_CLEAR'); ?>" href="#" onclick="jInsertFieldValue('', '<?php echo $id; ?>'); return false;">
 	<span class="icon-remove" aria-hidden="true"></span></a>
 
 

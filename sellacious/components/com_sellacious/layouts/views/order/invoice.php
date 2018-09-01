@@ -25,8 +25,8 @@ if ($app->input->get('format') == 'pdf')
 {
 	?>
 	<style>
-		<?php echo file_get_contents(JPATH_SITE . '/media/com_sellacious/css/component.css'); ?>
-		<?php echo file_get_contents(JPATH_SITE . '/media/com_sellacious/css/view.order.invoice.css'); ?>
+		<?php echo file_get_contents(JPATH_BASE . '/media/com_sellacious/css/component.css'); ?>
+		<?php echo file_get_contents(JPATH_BASE . '/media/com_sellacious/css/view.order.invoice.css'); ?>
 	</style>
 	<?php
 }

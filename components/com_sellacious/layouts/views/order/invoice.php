@@ -24,6 +24,7 @@ if ($app->input->get('format') == 'pdf')
 	?>
 	<style>
 		<?php
+		// As this is a frontend view calling frontend css, this is okay to have direct path reference
 		echo file_get_contents(JPATH_SITE . '/media/com_sellacious/css/fe.component.css');
 		echo file_get_contents(JPATH_SITE . '/media/com_sellacious/css/fe.view.order.invoice.css');
 		?>
