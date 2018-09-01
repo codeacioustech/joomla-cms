@@ -9,10 +9,10 @@
 jQuery(document).ready(function ($) {
 	var $jformImage = $('#jform_image');
 	var paths = Joomla.getOptions('system.paths', {});
-	var base = paths.root || '..';
+	var base = paths.base || '..';
 	var flagFormatter = function (opt) {
-		if (opt.id == '') return '&nbsp;';
-		var uri = base + '/media/mod_languages/images/' + opt.id + '.gif';
+		if (opt.id + '' === '') return '&nbsp;';
+		var uri = base + '/media/com_languages/images/' + opt.id + '.gif';
 		var split = opt.id.split('_');
 		var label = split[0] + (split[1] ? '-' + split[1].toUpperCase() : '');
 		return '<img src="' + uri + '"/> &nbsp; ' + label + (label === opt.id ? '' : ' (' + opt.id + ')');
