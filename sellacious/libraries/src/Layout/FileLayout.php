@@ -80,7 +80,7 @@ class FileLayout extends BaseLayout
 		$this->setLayout($layoutId);
 		$this->basePath = $basePath;
 
-		// Init Enviroment
+		// Init Environment
 		$this->setComponent($this->options->get('component', 'auto'));
 		$this->setClient($this->options->get('client', 'auto'));
 	}
@@ -485,24 +485,18 @@ class FileLayout extends BaseLayout
 	public function setClient($client)
 	{
 		// Force string conversion to avoid unexpected states
-		switch ((string) $client)
+		$cInfo = \JApplicationHelper::getClientInfo($client, !is_numeric($client));
+
+		if ($cInfo)
 		{
-			case 'site':
-			case '0':
-				$client = 0;
-				break;
-
-			case 'admin':
-			case '1':
-				$client = 1;
-				break;
-
-			default:
-				$client = (int) \JFactory::getApplication()->isClient('administrator');
-				break;
+			$this->options->set('client', $cInfo->id);
+			$this->options->set('client_path', $cInfo->path);
 		}
-
-		$this->options->set('client', $client);
+		else
+		{
+			$this->options->set('client', \JFactory::getApplication()->getClientId());
+			$this->options->set('client_path', JPATH_BASE);
+		}
 
 		// Refresh include paths
 		$this->refreshIncludePaths();
@@ -591,18 +585,22 @@ class FileLayout extends BaseLayout
 			$paths[] = JPATH_THEMES . '/' . $app->getTemplate() . '/html/layouts/' . $component;
 
 			// (3) Component path
-			$client = \JApplicationHelper::getClientInfo($this->options->get('client'));
-
-			$paths[] = ($client ? $client->path : JPATH_BASE) . '/components/' . $component . '/layouts';
+			$paths[] = $this->options->get('client_path', JPATH_BASE) . '/components/' . $component . '/layouts';
 		}
 
 		// (4) Standard Joomla! layouts override
 		$paths[] = JPATH_THEMES . '/' . $app->getTemplate() . '/html/layouts';
 
-		// (5 - lower priority) Current base layouts
+		// (5) Current base layouts
 		$paths[] = JPATH_BASE . '/layouts';
 
-		// (6 - lowest priority) Frontend base layouts
+		if (!empty($component))
+		{
+			// (6) Frontend component path
+			$paths[] = JPATH_ROOT . '/components/' . $component . '/layouts';
+		}
+
+		// (7 - lowest priority) Frontend base layouts
 		$paths[] = JPATH_ROOT . '/layouts';
 
 		return $paths;
