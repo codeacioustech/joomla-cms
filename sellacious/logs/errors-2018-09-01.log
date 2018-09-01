@@ -1,0 +1,25 @@
+#
+#<?php die('Forbidden.'); ?>
+#Date: 2018-09-01 06:15:59 UTC
+#Software: Joomla Platform 13.1.0 Stable [ Curiosity ] 24-Apr-2013 00:00 GMT
+
+#Fields: datetime	priority clientip	category	message
+2018-09-01T06:15:59+00:00	CRITICAL ::1	error	Uncaught \Throwable of type Error thrown. Stack trace: #0 /Users/codeacious3/joomla-cms/sellacious/modules/mod_login/mod_login.php(31): require()
+#1 /Users/codeacious3/joomla-cms/sellacious/libraries/src/Helper/ModuleHelper.php(201): include('/Users/codeacio...')
+#2 /Users/codeacious3/joomla-cms/sellacious/components/com_login/views/login/tmpl/default.php(25): Joomla\CMS\Helper\ModuleHelper::renderModule(Object(stdClass), Array)
+#3 /Users/codeacious3/joomla-cms/sellacious/libraries/src/MVC/View/HtmlView.php(695): include('/Users/codeacio...')
+#4 /Users/codeacious3/joomla-cms/sellacious/libraries/src/MVC/View/HtmlView.php(230): Joomla\CMS\MVC\View\HtmlView->loadTemplate(NULL)
+#5 /Users/codeacious3/joomla-cms/sellacious/libraries/src/MVC/Controller/BaseController.php(672): Joomla\CMS\MVC\View\HtmlView->display()
+#6 /Users/codeacious3/joomla-cms/sellacious/components/com_login/controller.php(42): Joomla\CMS\MVC\Controller\BaseController->display(false, NULL)
+#7 /Users/codeacious3/joomla-cms/sellacious/libraries/src/MVC/Controller/BaseController.php(710): LoginController->display()
+#8 /Users/codeacious3/joomla-cms/sellacious/components/com_login/login.php(21): Joomla\CMS\MVC\Controller\BaseController->execute('')
+#9 /Users/codeacious3/joomla-cms/sellacious/libraries/src/Component/ComponentHelper.php(382): require_once('/Users/codeacio...')
+#10 /Users/codeacious3/joomla-cms/sellacious/libraries/src/Component/ComponentHelper.php(357): Joomla\CMS\Component\ComponentHelper::executeComponent('/Users/codeacio...')
+#11 /Users/codeacious3/joomla-cms/sellacious/includes/libraries/application.php(205): Joomla\CMS\Component\ComponentHelper::renderComponent('com_login')
+#12 /Users/codeacious3/joomla-cms/sellacious/includes/libraries/application.php(250): JApplicationSellacious->dispatch()
+#13 /Users/codeacious3/joomla-cms/sellacious/libraries/src/Application/CMSApplication.php(195): JApplicationSellacious->doExecute()
+#14 /Users/codeacious3/joomla-cms/sellacious/index.php(43): Joomla\CMS\Application\CMSApplication->execute()
+#15 {main}
+2018-09-01T06:16:38+00:00	WARNING ::1	jerror	Username and password do not match or you do not have an account yet.
+2018-09-01T10:25:58+00:00	WARNING ::1	jerror	Username and password do not match or you do not have an account yet.
+2018-09-01T11:58:07+00:00	WARNING ::1	jerror	Username and password do not match or you do not have an account yet.
