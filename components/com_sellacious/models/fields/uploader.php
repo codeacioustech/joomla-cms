@@ -284,6 +284,6 @@ class JFormFieldUploader extends JFormField
 		JText::script('LIB_SELLACIOUS_ERROR_FILE_UPLOAD_TYPE_NOT_ALLOWED');
 		JText::script('LIB_SELLACIOUS_ERROR_FILE_UPLOAD_SIZE_EXCEEDED');
 
-		return JLayoutHelper::render($this->layout, $this, '', array('client' => 2, 'debug' => false));
+		return JLayoutHelper::render($this->layout, $this, '', array('debug' => false));
 	}
 }

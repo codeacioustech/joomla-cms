@@ -16,6 +16,8 @@ JFormHelper::loadFieldClass('file');
  * Form Field to provide an input field for files
  *
  * @link   http://www.w3.org/TR/html-markup/input.file.html#input.file
+ *
+ * @since   1.2.0
  */
 class JFormFieldFilePlus extends JFormFieldFile
 {
@@ -26,6 +28,14 @@ class JFormFieldFilePlus extends JFormFieldFile
 	 * @since  11.1
 	 */
 	public $type = 'FilePlus';
+
+	/**
+	 * Name of the layout being used to render the field
+	 *
+	 * @var    string
+	 * @since  3.6
+	 */
+	protected $layout = 'sellacious.formfield.fileplus.default';
 
 	/**
 	 * Method to get the field input markup for the file field.
@@ -96,9 +106,6 @@ class JFormFieldFilePlus extends JFormFieldFile
 
 		$displayData = (object) get_object_vars($this);
 
-		$options = array('client' => 2, 'debug' => 0);
-		$html    = JLayoutHelper::render('com_sellacious.formfield.fileplus', $displayData, '', $options);
-
-		return $html;
+		return JLayoutHelper::render($this->layout, $displayData, '', array('debug' => false));
 	}
 }

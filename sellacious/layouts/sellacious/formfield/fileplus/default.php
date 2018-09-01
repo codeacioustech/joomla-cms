@@ -4,7 +4,7 @@
  * @package     sellacious
  *
  * @copyright   Copyright (C) 2012-2018 Bhartiy Web Technologies. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @license     SPL Sellacious Private License; see http://www.sellacious.com/spl.html
  * @author      Izhar Aazmi <info@bhartiy.com> - http://www.bhartiy.com
  */
 // no direct access
@@ -15,20 +15,10 @@ JHtml::_('script', 'system/html5fallback.js', array('version' => 'auto', 'relati
 
 /** @var  array  $displayData */
 $field   = (object) $displayData;
-$helper  = SellaciousHelper::getInstance();
 $files   = $field->value ? (array)$field->value : array();
-$premium = in_array('premium-input', explode(' ', $field->class));
-
-if (version_compare(JVERSION, '3.7.0', '<'))
-{
-	$maxSize = JHtml::_('number.bytes', $helper->media->getMaxUploadSize());
-}
-else
-{
-	$maxSize = JHtml::_('number.bytes', JUtility::getMaxUploadSize());
-}
+$maxSize = JHtml::_('number.bytes', JUtility::getMaxUploadSize());
 ?>
-<div class="input-container jff-fileplus-wrapper <?php echo $premium ? 'jff-fileplus-premium' : '' ?>" id="<?php echo $field->id ?>_wrapper">
+<div class="jff-fileplus-wrapper" id="<?php echo $field->id ?>_wrapper">
 	<div class="jff-fileplus-inactive hidden">
 		<div class="alert adjusted alert-info fade in">
 			<i class="fa fa-fw fa-lg fa-exclamation"></i>
@@ -59,8 +49,7 @@ else
 			<?php
 			foreach ($files as $file)
 			{
-				$options = array('client' => 2, 'debug' => 0);
-				echo JLayoutHelper::render('com_sellacious.formfield.fileplus.rowtemplate', (object) $file, '', $options);
+				echo JLayoutHelper::render('sellacious.formfield.fileplus.rowtemplate', (object) $file, '', array('debug' => false));
 			}
 			?>
 		</ul>
