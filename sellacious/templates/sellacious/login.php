@@ -47,13 +47,14 @@ $doc->addScript('templates/sellacious/js/plugin/pace/pace.min.js');
 $doc->addScript('templates/sellacious/js/libs/jquery-2.0.2.min.js');
 $doc->addScript('templates/sellacious/js/libs/jquery-ui-1.10.3.min.js');
 
+JHtml::_('script', 'sellacious/plugin/jquery-validate/jquery.validate.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
+
 $doc->addScript('templates/sellacious/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js');    // JS TOUCH plugin for mobile drag-drop touch events
 $doc->addScript('templates/sellacious/js/bootstrap/bootstrap.min.js');                            // BOOTSTRAP JS
 $doc->addScript('templates/sellacious/js/notification/SmartNotification.min.js');                // CUSTOM NOTIFICATION
 $doc->addScript('templates/sellacious/js/smartwidgets/jarvis.widget.min.js');                    // JARVIS WIDGETS
 $doc->addScript('templates/sellacious/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js');    // EASY PIE CHARTS
 $doc->addScript('templates/sellacious/js/plugin/sparkline/jquery.sparkline.min.js');            // SPARKLINES
-$doc->addScript('templates/sellacious/js/plugin/jquery-validate/jquery.validate.min.js');        // JQUERY VALIDATE
 $doc->addScript('templates/sellacious/js/plugin/masked-input/jquery.maskedinput.min.js');        // JQUERY MASKED INPUT
 $doc->addScript('templates/sellacious/js/plugin/bootstrap-slider/bootstrap-slider.min.js');        // JQUERY UI + Bootstrap Slider
 $doc->addScript('templates/sellacious/js/plugin/msie-fix/jquery.mb.browser.min.js');            // browser msie issue fix
