@@ -111,7 +111,6 @@ class LanguagesModelInstall extends SellaciousModel
 
 		foreach ($files as $file)
 		{
-			// We should replace 1 => 2 and 'administrator' => 'sellacious'. Hold for later
 			if (is_file(JPATH_ADMINISTRATOR . '/' . $file) && !is_file(JPATH_BASE . '/' . $file))
 			{
 				JFile::copy(JPATH_ADMINISTRATOR . '/' . $file, JPATH_BASE . '/' . $file);

@@ -34,7 +34,6 @@ class JFormFieldTagsInputText extends JFormFieldText
 		JHtml::_('jquery.framework');
 
 		JHtml::_('script', 'sellacious/plugin/bootstrap-tags/bootstrap-tagsinput.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
-		JHtml::_('script', 'sellacious/plugin/bootstrap-tags/bootstrap-tagsinput.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 		// Translate placeholder text
 		$hint = $this->translateHint ? JText::_($this->hint) : $this->hint;

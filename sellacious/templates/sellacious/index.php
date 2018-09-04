@@ -48,7 +48,8 @@ JFactory::getDocument()->addScriptOptions('sellacious.jarvis_site', $helper->cor
 		<link rel="icon" href="<?php echo $favicon ?>" type="image/x-icon" />
 
 		<?php
-		JHtml::_('script', 'media/sellacious/js/plugin/messagebox/jquery.messagebox.min.js', array('version' => S_VERSION_CORE));
+		// MessageBox CSS is not relative as it resides in "js" folder instead of "css" folder.
+		JHtml::_('script', 'media/sellacious/plugin/messagebox/jquery.messagebox.min.js', array('version' => S_VERSION_CORE, 'relative' => true));
 		JHtml::_('stylesheet', 'media/sellacious/js/plugin/messagebox/jquery.messagebox.css', array('version' => S_VERSION_CORE));
 		JHtml::_('stylesheet', 'sellacious/font-awesome.min.css', array('version' => S_VERSION_CORE, 'relative' => true));
 

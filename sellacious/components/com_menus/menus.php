@@ -22,6 +22,8 @@ if (!class_exists('SellaciousHelper'))
 	throw new RuntimeException(JText::_('COM_MENUS_SELLACIOUS_LIBRARY_NOT_FOUND'));
 }
 
+JLoader::register('MenusHelper', __DIR__ . '/helpers/menus.php');
+
 $app = JFactory::getApplication();
 
 $controller = JControllerLegacy::getInstance('Menus');

@@ -28,8 +28,6 @@ class MenusController extends JControllerLegacy
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{
-		JLoader::register('MenusHelper', __DIR__ . '/helpers/menus.php');
-
 		return parent::display();
 	}
 }

@@ -580,7 +580,7 @@ final class JApplicationSellacious extends JApplicationCms
 			$lang = $this->input->get('lang', null);
 
 			// Make sure that the language exists
-			if ($lang && JLanguage::exists($lang))
+			if ($lang && \JLanguageHelper::exists($lang))
 			{
 				$options['language'] = $lang;
 			}
@@ -592,7 +592,7 @@ final class JApplicationSellacious extends JApplicationCms
 			$lang = $this->getUserState('application.lang');
 
 			// Make sure that the language exists
-			if ($lang && JLanguage::exists($lang))
+			if ($lang && \JLanguageHelper::exists($lang))
 			{
 				$options['language'] = $lang;
 			}
@@ -604,19 +604,19 @@ final class JApplicationSellacious extends JApplicationCms
 			$lang = $user->getParam('sellacious_language', null);
 
 			// Make sure that the user's language exists
-			if ($lang && JLanguage::exists($lang))
+			if ($lang && \JLanguageHelper::exists($lang))
 			{
 				$options['language'] = $lang;
 			}
 		}
 
-		if ($this->_language_filter && empty($options['language']))
+		if (empty($options['language']) && $this->getLanguageFilter())
 		{
 			// Detect cookie language
 			$lang = $this->input->cookie->get(md5($this->get('secret') . 'language'), null, 'string');
 
 			// Make sure that the user's language exists
-			if ($lang && JLanguage::exists($lang))
+			if ($lang && \JLanguageHelper::exists($lang))
 			{
 				$options['language'] = $lang;
 			}
@@ -628,19 +628,19 @@ final class JApplicationSellacious extends JApplicationCms
 			$lang = $user->getParam('language');
 
 			// Make sure that the user's language exists
-			if ($lang && JLanguage::exists($lang))
+			if ($lang && \JLanguageHelper::exists($lang))
 			{
 				$options['language'] = $lang;
 			}
 		}
 
-		if ($this->_detect_browser && empty($options['language']))
+		if (empty($options['language']) && $this->getDetectBrowser())
 		{
 			// Detect browser language
-			$lang = JLanguageHelper::detectLanguage();
+			$lang = \JLanguageHelper::detectLanguage();
 
 			// Make sure that the user's language exists
-			if ($lang && JLanguage::exists($lang))
+			if ($lang && \JLanguageHelper::exists($lang))
 			{
 				$options['language'] = $lang;
 			}
@@ -650,17 +650,16 @@ final class JApplicationSellacious extends JApplicationCms
 		{
 			// Detect default language (use site default)
 			$params = JComponentHelper::getParams('com_languages');
-
 			$options['language'] = $params->get('site', $this->get('language', 'en-GB'));
 		}
 
 		// One last check to make sure we have something
-		if (!JLanguage::exists($options['language']))
+		if (!\JLanguageHelper::exists($options['language']))
 		{
 			$lang = $this->config->get('language', 'en-GB');
 
 			// As a last ditch fail to english
-			$options['language'] = JLanguage::exists($lang) ? $lang : 'en-GB';
+			$options['language'] = \JLanguageHelper::exists($lang) ? $lang : 'en-GB';
 		}
 
 		// Update the session storage
@@ -673,15 +672,18 @@ final class JApplicationSellacious extends JApplicationCms
 
 		JLoader::registerNamespace('Sellacious', JPATH_LIBRARIES . '/sellacious/objects');
 		JLoader::registerAlias('JToolbarHelper', 'Sellacious\Toolbar\ToolbarHelper');
+	}
 
-		/*
+	protected function loadLibraryLanguage()
+	{
+		/**
 		 * Try the lib_joomla file in the current language (without allowing the loading of the file in the default language)
 		 * Fallback to the default language if necessary
 		 *
 		 * The site and administrator languages are sufficient, no need to load from sellacious application
 		 */
 		$this->getLanguage()->load('lib_joomla', JPATH_SITE, null, false, true)
-			|| $this->getLanguage()->load('lib_joomla', JPATH_ADMINISTRATOR, null, false, true);
+		|| $this->getLanguage()->load('lib_joomla', JPATH_ADMINISTRATOR, null, false, true);
 	}
 
 	/**
