@@ -113,7 +113,7 @@ class JFormFieldRadioNumbercombo extends JFormField
 									'autocomplete', 'autofocus', 'onchange', 'value',
 									'name' , 'id', 'options', 'fieldname', 'radiobuttons', 'textlabel');
 
-		return JLayoutHelper::render('com_sellacious.formfield.'.$this->type, $layoutdata, '', array('client' => 2, 'debug'  => 0));
+		return JLayoutHelper::render('com_sellacious.formfield.'.$this->type, $layoutdata);
 	}
 
 	/**

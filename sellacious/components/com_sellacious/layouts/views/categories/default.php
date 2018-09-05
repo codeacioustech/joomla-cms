@@ -31,6 +31,4 @@ $data['view']      = &$this;
 $data['html']      = &$html;
 $data['view_item'] = 'category';
 
-$options = array('client' => 2, 'debug' => 0);
-
-echo JLayoutHelper::render('com_sellacious.view.nestedlist', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.nestedlist', $data);

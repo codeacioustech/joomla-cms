@@ -303,10 +303,9 @@ $c_currency         = $this->helper->currency->current('code_3');
 
 	<div id="payment-forms">
 	<?php
-	$options       = array('debug' => 0);
 	$args          = new stdClass;
 	$args->methods = $this->helper->paymentMethod->getMethods('cart', true, $order->get('customer_uid') ?: false, $order->get('id'));
-	$html          = JLayoutHelper::render('com_sellacious.payment.forms', $args, '', $options);
+	$html          = JLayoutHelper::render('com_sellacious.payment.forms', $args);
 
 	echo $html;
 	?>

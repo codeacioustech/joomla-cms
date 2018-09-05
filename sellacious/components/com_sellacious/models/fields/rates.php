@@ -64,7 +64,7 @@ class JFormFieldRates extends JFormField
 		$js = $this->getScript();
 		$doc->addScriptDeclaration($js);
 
-		return JLayoutHelper::render('joomla.formfield.rates.input', $data, '', array('debug' => 0));
+		return JLayoutHelper::render('joomla.formfield.rates.input', $data);
 	}
 
 	/**

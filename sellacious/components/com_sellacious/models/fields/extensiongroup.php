@@ -43,12 +43,11 @@ class JFormFieldExtensionGroup extends JFormField
 		// May be we should also check for data structure of value. Skipping for now!
 		$this->value = !is_object($this->value) && !is_array($this->value) ? array() : (array) $this->value;
 
-		$options = array('client' => 2, 'debug' => 0);
 		$data    = (object) get_object_vars($this);
 
 		$data->extensions = $this->getExtensions();
 
-		$html    = JLayoutHelper::render('com_sellacious.formfield.' . strtolower($this->type), $data, '', $options);
+		$html    = JLayoutHelper::render('com_sellacious.formfield.' . strtolower($this->type), $data);
 
 		return $html;
 	}

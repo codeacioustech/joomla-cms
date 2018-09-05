@@ -43,13 +43,12 @@ class JFormFieldText2d extends JFormField
 		JHtml::_('stylesheet', 'com_sellacious/field.text2d.css', array('version' => S_VERSION_CORE, 'relative' => true));
 
 		$helper  = SellaciousHelper::getInstance();
-		$options = array('client' => 2, 'debug' => 0);
 		$data    = (object) (get_object_vars($this));
-		$html    = JLayoutHelper::render('com_sellacious.formfield.text2d', $data, '', $options);
+		$html    = JLayoutHelper::render('com_sellacious.formfield.text2d', $data);
 
 		$data->row_index = '##INDEX##';
 
-		$tmpl = JLayoutHelper::render('com_sellacious.formfield.text2d.rowtemplate', $data, '', $options);
+		$tmpl = JLayoutHelper::render('com_sellacious.formfield.text2d.rowtemplate', $data);
 		$tmpl = json_encode(preg_replace('/[\t\r\n]+/', '', $tmpl));
 		$rows = count($this->value);
 

@@ -53,8 +53,8 @@ class JFormFieldProductseries extends JFormField
 
 		$props = get_object_vars($this);
 
-		$html  = JLayoutHelper::render('com_sellacious.formfield.productseries', array_merge($props), '', array('client' => 2, 'debug'  => 0));
-		$tmpl  = JLayoutHelper::render('com_sellacious.formfield.productseries.rowtemplate', array_merge($props, array('row_index' => '##INDEX##')), '', array('client' => 2, 'debug'  => 0));
+		$html  = JLayoutHelper::render('com_sellacious.formfield.productseries', $props);
+		$tmpl  = JLayoutHelper::render('com_sellacious.formfield.productseries.rowtemplate', array_merge($props, array('row_index' => '##INDEX##')));
 
 		$tmpl  = json_encode(preg_replace('/[\t\r\n]+/', '', $tmpl));
 		$rows  = count($this->value);

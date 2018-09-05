@@ -68,7 +68,6 @@ JText::script('COM_SELLACIOUS_FLD_GRD_PRODUCTPRICES_LAST_ROW_DELETE_ERROR');
 			<?php
 				$layout  = 'com_sellacious.formfield.productprices.rowtemplate';
 				$data	 = clone $field;
-				$options = array('client' => 2, 'debug' => 0);
 				$records = $field->value;
 
 				if (count($records))
@@ -77,7 +76,8 @@ JText::script('COM_SELLACIOUS_FLD_GRD_PRODUCTPRICES_LAST_ROW_DELETE_ERROR');
 					{
 						$data->row_index = $i;
 						$data->c_code    = $field->c_code;
-						echo JLayoutHelper::render($layout, $data, '', $options);
+
+						echo JLayoutHelper::render($layout, $data);
 					}
 				}
 			?>

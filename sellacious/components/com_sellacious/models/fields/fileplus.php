@@ -106,6 +106,6 @@ class JFormFieldFilePlus extends JFormFieldFile
 
 		$displayData = (object) get_object_vars($this);
 
-		return JLayoutHelper::render($this->layout, $displayData, '', array('debug' => false));
+		return JLayoutHelper::render($this->layout, $displayData);
 	}
 }

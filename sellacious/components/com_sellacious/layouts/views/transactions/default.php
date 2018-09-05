@@ -27,8 +27,6 @@ $data['view']      = &$this;
 $data['html']      = &$html;
 $data['view_item'] = 'transaction';
 
-$options = array('client' => 2, 'debug' => 0);
-
 echo $this->loadTemplate('summary');
 
-echo JLayoutHelper::render('com_sellacious.view.list', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.list', $data);

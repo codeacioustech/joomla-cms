@@ -10,16 +10,11 @@
 // no direct access
 defined('_JEXEC') or die;
 
-$data	= array(
-			'name'  => $this->getName(),
-			'state' => $this->state,
-			'item'  => $this->item,
-			'form'  => $this->form,
-		);
+$data = array(
+	'name'  => $this->getName(),
+	'state' => $this->state,
+	'item'  => $this->item,
+	'form'  => $this->form,
+);
 
-$options= array(
-			'client' => 2,
-			'debug'  => 0,
-		);
-
-echo JLayoutHelper::render('com_sellacious.view.edit', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.edit', $data);

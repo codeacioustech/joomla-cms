@@ -207,6 +207,6 @@ class SellaciousControllerCompare extends SellaciousControllerBase
 			}
 		}
 
-		return JLayoutHelper::render('com_sellacious.compare.bar', $items, '', array('debug' => 0));
+		return JLayoutHelper::render('com_sellacious.compare.bar', $items);
 	}
 }

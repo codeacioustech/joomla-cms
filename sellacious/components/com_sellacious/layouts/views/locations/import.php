@@ -23,15 +23,14 @@ $data['html']      = &$html;
 $data['script']    = false;
 $data['view_item'] = 'location';
 
-$options = array('client' => 2, 'debug' => 0);
 JText::script('COM_SELLACIOUS_LOCATIONS_IMPORT_CONFIRM');
 
-echo JLayoutHelper::render('com_sellacious.view.list', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.list', $data);
 
 ?>
 <script type="text/javascript">
 Joomla.submitbutton = function (task) {
-	if (task == 'locations.import') {
+	if (task === 'locations.import') {
 		if (confirm(Joomla.JText._('COM_SELLACIOUS_LOCATIONS_IMPORT_CONFIRM'))) {
 			Joomla.submitform(task);
 		}

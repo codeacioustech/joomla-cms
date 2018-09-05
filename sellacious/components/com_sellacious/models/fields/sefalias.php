@@ -44,7 +44,7 @@ class JFormFieldSefAlias extends JFormField
 
 		$data['views'] = $views;
 
-		$html = JLayoutHelper::render('com_sellacious.formfield.' . strtolower($this->type), (object) $data, '', array('client' => 2, 'debug' => 0));
+		$html = JLayoutHelper::render('com_sellacious.formfield.' . strtolower($this->type), (object) $data);
 
 		return $html;
 	}

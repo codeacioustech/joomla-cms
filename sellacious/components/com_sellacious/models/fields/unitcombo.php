@@ -144,7 +144,7 @@ class JFormFieldUnitCombo extends JFormField
 			'autocomplete', 'autofocus', 'spellcheck', 'pattern', 'inputmode', 'dirname', 'onchange',
 			'name', 'id', 'options', 'value');
 
-		return JLayoutHelper::render($this->layout, $layoutData, $this->layoutPath, array('client' => $this->clientId, 'debug' => 0));
+		return JLayoutHelper::render($this->layout, $layoutData, $this->layoutPath);
 	}
 
 	/**

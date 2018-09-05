@@ -14,9 +14,6 @@ defined('_JEXEC') or die;
 $field = $displayData->field;
 $media = $displayData->media;
 $helper = SellaciousHelper::getInstance();
-
-$options    = array('client' => 2, 'debug' => 0);
-$layoutFile = 'com_sellacious.formfield.eproductmedia.mediarow';
 ?>
 <tr class="jff-eproductmedia-media" data-state="<?php echo $media->state ?>">
 	<td class="jff-eproductmedia-media-file" data-id="<?php echo $media->id ?>" data-context="media">
@@ -24,7 +21,7 @@ $layoutFile = 'com_sellacious.formfield.eproductmedia.mediarow';
 				class="fa fa-upload"></i>&nbsp;<?php echo JText::_('COM_SELLACIOUS_EPRODUCTMEDIA_UPLOAD_PRODUCT_FULL') ?></a></div>
 		<ul class="list-unstyled jff-eproductmedia-list pull-left">
 			<?php if (isset($media->media)): ?>
-			<?php echo JLayoutHelper::render($layoutFile, $media->media, '', $options); ?>
+			<?php echo JLayoutHelper::render('com_sellacious.formfield.eproductmedia.mediarow', $media->media); ?>
 			<?php endif; ?>
 		</ul>
 	</td>
@@ -35,7 +32,7 @@ $layoutFile = 'com_sellacious.formfield.eproductmedia.mediarow';
 		</div>
 		<ul class="list-unstyled jff-eproductmedia-list pull-left">
 			<?php if (isset($media->sample)): ?>
-			<?php echo JLayoutHelper::render($layoutFile, $media->sample, '', $options); ?>
+			<?php echo JLayoutHelper::render('com_sellacious.formfield.eproductmedia.mediarow', $media->sample); ?>
 			<?php endif; ?>
 		</ul>
 	</td>

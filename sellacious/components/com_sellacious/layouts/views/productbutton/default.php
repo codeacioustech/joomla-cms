@@ -17,15 +17,10 @@ $data = array(
 	'form'  => $this->form,
 );
 
-$options = array(
-	'client' => 2,
-	'debug'  => 0,
-);
-
 $g_currency = $this->helper->currency->getGlobal('code_3');
 $this->form->bind(array('currency' => $g_currency));
 
-echo JLayoutHelper::render('com_sellacious.view.edit', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.edit', $data);
 
 JText::script('COM_SELLACIOUS_PRODUCT_BUTTON_CHECKOUT_OPTION_BUY_NOW');
 JText::script('COM_SELLACIOUS_PRODUCT_BUTTON_CHECKOUT_OPTION_ADD_TO_CART');

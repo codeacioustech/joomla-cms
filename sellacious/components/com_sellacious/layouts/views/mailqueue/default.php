@@ -24,8 +24,6 @@ $data['view']      = &$this;
 $data['html']      = &$html;
 $data['view_item'] = 'mailqueue';
 
-$options = array('client' => 2, 'debug' => 0);
-
 ?><div style="overflow-x: auto"><?php
-	echo JLayoutHelper::render('com_sellacious.view.list', $data, '', $options);
+	echo JLayoutHelper::render('com_sellacious.view.list', $data);
 ?></div><br><?php

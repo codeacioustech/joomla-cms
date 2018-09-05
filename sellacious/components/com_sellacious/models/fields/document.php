@@ -207,8 +207,7 @@ class JFormFieldDocument extends JFormFieldFile
 
 		$options     = $this->getOptions();
 		$displayData = array_merge(get_object_vars($this), array('options' => $options));
-		$config      = array('client' => 2, 'debug' => 0);
-		$html        = JLayoutHelper::render('com_sellacious.formfield.document', (object) $displayData, '', $config);
+		$html        = JLayoutHelper::render('com_sellacious.formfield.document', (object) $displayData);
 
 		return $html;
 	}

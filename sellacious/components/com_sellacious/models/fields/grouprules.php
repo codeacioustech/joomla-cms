@@ -185,7 +185,7 @@ class JFormFieldGroupRules extends JFormField
 		$data->assetRules = $assetRules;
 
 		$layout = $this->accordion ? '.accordion' : '.grid';
-		$html   = JLayoutHelper::render('com_sellacious.formfield.grouprules' . $layout, $data, '', array('debug' => 0));
+		$html   = JLayoutHelper::render('com_sellacious.formfield.grouprules' . $layout, $data);
 
 		return $html;
 	}

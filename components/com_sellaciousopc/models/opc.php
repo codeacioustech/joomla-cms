@@ -344,7 +344,6 @@ class SellaciousopcModelOpc extends SellaciousModel
 			$modal    = isset($args[0]["modal"]) ? $args[0]["modal"] : $app->input->getBool('modal', false);
 			$readonly = isset($args[0]["readonly"]) ? $args[0]["readonly"] : $app->input->getBool('readonly', false);
 
-			$options    = array('debug' => false);
 			$args       = new stdClass;
 			$args->cart = $this->helper->cart->getCart();
 
@@ -371,13 +370,12 @@ class SellaciousopcModelOpc extends SellaciousModel
 
 			if ($layout == 'items_modal')
 			{
-				$options['component'] = 'com_sellacious';
-				$layout               = new JLayoutFile('com_sellacious.cart.aio.' . $layout, '', $options);
-				$html                 = $layout->render($args);
+				$options = array('component' => 'com_sellacious');
+				$html    = JLayoutHelper::render('com_sellacious.cart.aio.' . $layout, $args, '', $options);
 			}
 			else
 			{
-				$html = JLayoutHelper::render('com_sellaciousopc.opc.cart.' . $layout, $args, '', $options);
+				$html = JLayoutHelper::render('com_sellaciousopc.opc.cart.' . $layout, $args);
 			}
 
 			$data = array(

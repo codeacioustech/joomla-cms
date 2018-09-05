@@ -465,7 +465,6 @@ class SellaciousControllerUser extends SellaciousControllerBase
 			}
 			else
 			{
-				$options   = array('debug' => 0);
 				$addresses = $this->helper->user->getAddresses($user->id, 1);
 
 				foreach ($addresses as $address)
@@ -476,8 +475,8 @@ class SellaciousControllerUser extends SellaciousControllerBase
 					$address->show_st = false;
 				}
 
-				$html   = JLayoutHelper::render('com_sellacious.user.addresses', $addresses, '', $options);
-				$modals = JLayoutHelper::render('com_sellacious.user.modals', $addresses, '', $options);
+				$html   = JLayoutHelper::render('com_sellacious.user.addresses', $addresses);
+				$modals = JLayoutHelper::render('com_sellacious.user.modals', $addresses);
 				$data   = array(
 					'message' => '',
 					'data'    => array(preg_replace('/\s+/', ' ', $html), preg_replace('/\s+/', ' ', $modals)),

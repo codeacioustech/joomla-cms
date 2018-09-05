@@ -42,9 +42,8 @@ class JFormFieldProductPriceRepeatable extends JFormField
 
 		JHtml::_('jquery.framework');
 
-		$options = array('client' => 2, 'debug' => 0);
 		$data    = (object) get_object_vars($this);
-		$html    = JLayoutHelper::render('com_sellacious.formfield.' . strtolower($this->type), $data, '', $options);
+		$html    = JLayoutHelper::render('com_sellacious.formfield.' . strtolower($this->type), $data);
 
 		$doc = JFactory::getDocument();
 		$doc->addScriptDeclaration(<<<JS

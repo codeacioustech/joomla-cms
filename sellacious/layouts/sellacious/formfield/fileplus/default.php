@@ -49,7 +49,7 @@ $maxSize = JHtml::_('number.bytes', JUtility::getMaxUploadSize());
 			<?php
 			foreach ($files as $file)
 			{
-				echo JLayoutHelper::render('sellacious.formfield.fileplus.rowtemplate', (object) $file, '', array('debug' => false));
+				echo JLayoutHelper::render('sellacious.formfield.fileplus.rowtemplate', (object) $file);
 			}
 			?>
 		</ul>

@@ -78,7 +78,6 @@ class SellaciousopcControllerOpc extends SellaciousControllerBase
 			$modal    = $app->input->getBool('modal', false);
 			$readonly = $app->input->getBool('readonly', false);
 
-			$options    = array('debug' => false);
 			$args       = new stdClass;
 			$args->cart = $this->helper->cart->getCart();
 
@@ -105,14 +104,14 @@ class SellaciousopcControllerOpc extends SellaciousControllerBase
 
 			if ($layout == 'items_modal')
 			{
-				$options['component'] = 'com_sellacious';
-				$layout = new JLayoutFile('com_sellacious.cart.aio.' . $layout , '', $options);
+				$options = array('component' => 'com_sellacious');
+				$layout  = new JLayoutFile('com_sellacious.cart.aio.' . $layout , '', $options);
 
-				$html   = $layout->render($args);
+				$html = $layout->render($args);
 			}
 			else
 			{
-				$html   = JLayoutHelper::render('com_sellaciousopc.opc.cart.' . $layout, $args, '', $options);
+				$html = JLayoutHelper::render('com_sellaciousopc.opc.cart.' . $layout, $args);
 			}
 
 			$response = array(
@@ -800,7 +799,7 @@ class SellaciousopcControllerOpc extends SellaciousControllerBase
 				$args         = new stdClass;
 				$args->cart   = $cart;
 				$args->values = $values;
-				$html         = JLayoutHelper::render('com_sellacious.opc.cart.checkoutform.viewer', $args, '', array('debug' => false));
+				$html         = JLayoutHelper::render('com_sellacious.opc.cart.checkoutform.viewer', $args);
 
 				if(!empty($errs))
 				{

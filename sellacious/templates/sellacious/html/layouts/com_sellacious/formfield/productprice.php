@@ -43,9 +43,8 @@ $flat  = $field->element['mode'] == 'flat';
 			$folder  = 'com_sellacious.formfield.productprice';
 			$layout  = $field->readonly ? $folder . '.rowreadonly' : $folder . '.rowtemplate';
 			$data    = clone $field;
-			$options = array('client' => 2, 'debug' => 0);
 
-			echo JLayoutHelper::render($layout, $data, '', $options);
+			echo JLayoutHelper::render($layout, $data);
 			?>
 			<tr class="sfpp-blankrow hidden">
 				<td colspan="5"></td>

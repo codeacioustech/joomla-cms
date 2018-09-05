@@ -52,14 +52,13 @@ class JFormFieldProductPrices extends JFormField
 
 		$lists   = $this->getLists();
 		$props   = get_object_vars($this);
-		$options = array('client' => 2, 'debug' => 0);
 
 		$data = (object) array_merge($props, array('lists' => $lists, 'c_code' => $s_currency));
-		$html = JLayoutHelper::render('com_sellacious.formfield.productprices', $data, '', $options);
+		$html = JLayoutHelper::render('com_sellacious.formfield.productprices', $data);
 
 		$data->row_index = '##INDEX##';
 
-		$tmpl = JLayoutHelper::render('com_sellacious.formfield.productprices.rowtemplate', $data, '', $options);
+		$tmpl = JLayoutHelper::render('com_sellacious.formfield.productprices.rowtemplate', $data);
 		$tmpl = json_encode(preg_replace('/[\t\r\n]+/', '', $tmpl));
 		$rows = count($this->value);
 

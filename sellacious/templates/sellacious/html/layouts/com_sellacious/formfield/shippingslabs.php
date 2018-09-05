@@ -68,8 +68,7 @@ $prefix = 'COM_SELLACIOUS_SHIPPINGSLABS_FIELD_GRID_HEADING';
 		</thead>
 		<tbody>
 		<?php
-		$data    = clone $field;
-		$options = array('client' => 2, 'debug' => false);
+		$data = clone $field;
 
 		$data->currency = $field->currency;
 

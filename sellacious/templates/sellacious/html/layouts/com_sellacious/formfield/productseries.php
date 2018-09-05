@@ -39,14 +39,13 @@ JText::script('COM_SELLACIOUS_FLD_GRD_PRODUCTSERIES_LAST_ROW_DELETE_ERROR');
 		<?php
 			$layout  = 'com_sellacious.formfield.productseries.rowtemplate';
 			$data	 = $displayData;
-			$options = array('client' => 2, 'debug'  => 0);
 
 			if (count($field->value))
 			{
 				foreach ($field->value as $i => $wasted)
 				{
 					$data['row_index'] = $i;
-					echo JLayoutHelper::render($layout, $data, '', $options);
+					echo JLayoutHelper::render($layout, $data);
 				}
 			}
 			else

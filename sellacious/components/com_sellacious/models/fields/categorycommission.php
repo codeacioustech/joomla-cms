@@ -83,7 +83,7 @@ class JFormFieldCategoryCommission extends JFormField
 		$js = $this->getScript();
 		$doc->addScriptDeclaration($js);
 
-		return JLayoutHelper::render('joomla.formfield.categorycommission.input', $data, '', array('debug' => 0));
+		return JLayoutHelper::render('joomla.formfield.categorycommission.input', $data);
 	}
 
 	/**

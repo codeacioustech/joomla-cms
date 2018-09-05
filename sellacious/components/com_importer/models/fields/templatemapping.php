@@ -57,10 +57,9 @@ class JFormFieldTemplateMapping extends JFormField
 
 		if ($importer && is_callable(array($importer, 'getColumns')) && count($columns = $importer->getColumns()))
 		{
-			$data    = (object) array_merge(get_object_vars($this), array('columns' => $columns));
-			$options = array('client' => 2, 'debug' => false);
+			$data = (object) array_merge(get_object_vars($this), array('columns' => $columns));
 
-			return JLayoutHelper::render('com_importer.formfield.templatemapping', $data, '', $options);
+			return JLayoutHelper::render('com_importer.formfield.templatemapping', $data);
 		}
 
 		$message = JText::_('COM_IMPORTER_FORM_FIELD_TEMPLATE_MAPPING_INPUT_COLUMN_UNSUPPORTED_MESSAGE');

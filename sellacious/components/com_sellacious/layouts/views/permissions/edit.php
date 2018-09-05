@@ -24,11 +24,6 @@ $data = array(
 	'form'  => $this->form,
 );
 
-$options = array(
-	'client' => 2,
-	'debug'  => 0,
-);
-
 JFactory::getDocument()->addStyleDeclaration('.select-small { width:100%; max-width:350px; }');
 
-echo JLayoutHelper::render('com_sellacious.view.edittabs', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.edittabs', $data);

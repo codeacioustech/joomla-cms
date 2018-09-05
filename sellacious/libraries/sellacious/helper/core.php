@@ -876,8 +876,9 @@ class SellaciousHelperCore
 
 		if ($helper->config->get('show_brand_footer', 1) || !$helper->access->isSubscribed())
 		{
+			// Is basePath needed here?
 			$basePath = JPATH_SELLACIOUS . '/templates/sellacious/html/layouts';
-			$html     = JLayoutHelper::render('com_sellacious.footer', null, $basePath, array('debug' => false));
+			$html     = JLayoutHelper::render('com_sellacious.footer', null, $basePath);
 		}
 
 		return $html;

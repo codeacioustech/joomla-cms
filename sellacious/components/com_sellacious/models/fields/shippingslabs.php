@@ -65,16 +65,15 @@ class JFormFieldShippingSlabs extends JFormField
 		}
 
 		$props   = get_object_vars($this);
-		$options = array('client' => 2, 'debug' => 0);
 
 		$props['useTable'] = $helper->config->get('use_shippingrule_import');
 
 		$data = (object) array_merge($props, array('currency' => $currency, 'precision' => $precision, 'unitToggle' => $unitToggle));
-		$html = JLayoutHelper::render('com_sellacious.formfield.shippingslabs', $data, '', $options);
+		$html = JLayoutHelper::render('com_sellacious.formfield.shippingslabs', $data);
 
 		$data->row_index = '##INDEX##';
 
-		$tmpl = JLayoutHelper::render('com_sellacious.formfield.shippingslabs.rowtemplate', $data, '', $options);
+		$tmpl = JLayoutHelper::render('com_sellacious.formfield.shippingslabs.rowtemplate', $data);
 		$tmpl = json_encode(preg_replace('/[\t\r\n]+/', '', $tmpl));
 		$rows = count($this->value);
 

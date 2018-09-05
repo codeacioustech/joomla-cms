@@ -52,7 +52,7 @@ class JFormFieldCheckMatrix extends JFormField
 			'columns' => $columns,
 		);
 
-		return JLayoutHelper::render($this->layout, $data, '', array('debug' => false));
+		return JLayoutHelper::render($this->layout, $data);
 	}
 
 	/**

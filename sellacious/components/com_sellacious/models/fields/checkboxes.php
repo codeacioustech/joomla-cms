@@ -139,7 +139,7 @@ class JFormFieldCheckboxes extends JFormField
 
 		$props = get_object_vars($this);
 		$data  =  array_merge($props, compact('class', 'checkedOptions', 'required', 'autofocus', 'options'));
-		$html  = JLayoutHelper::render($this->layout, $data, '', array('debug'  => 0));
+		$html  = JLayoutHelper::render($this->layout, $data);
 
 		return $html;
 	}

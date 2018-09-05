@@ -114,7 +114,7 @@ class JFormFieldEProductMedia extends JFormFieldFile
 			$layoutFile  = 'com_sellacious.formfield.eproductmedia.inactive';
 		}
 
-		$html = JLayoutHelper::render($layoutFile, $displayData, '', array('client' => 2, 'debug' => 0));
+		$html = JLayoutHelper::render($layoutFile, $displayData);
 
 		return $html;
 	}

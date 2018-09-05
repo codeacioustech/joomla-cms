@@ -87,8 +87,7 @@ class JFormFieldCropImage extends JFormField
 		");
 
 		$properties = get_object_vars($this);
-		$options    = array('client' => 2, 'debug' => 0);
-		$html       = JLayoutHelper::render('com_sellacious.formfield.cropimage', $properties, '', $options);
+		$html       = JLayoutHelper::render('com_sellacious.formfield.cropimage', $properties);
 
 		return $html;
 	}

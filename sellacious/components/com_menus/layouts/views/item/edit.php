@@ -17,11 +17,6 @@ $data = array(
 	'form'  => $this->form,
 );
 
-$options = array(
-	'client' => 2,
-	'debug'  => 0,
-);
-
 JText::script('ERROR');
 JText::script('JGLOBAL_VALIDATION_FORM_FAILED');
 
@@ -42,7 +37,7 @@ jQuery(document).ready(function ($) {
 		}).done(function (data) {
 			var jformParentId = $('#jform_parent_id');
 			jformParentId.find('option').each(function() {
-				if ($(this).val() != '1') $(this).remove();
+				if ($(this).val() !== '1') $(this).remove();
 			});
 			$.each(data, function (i, val) {
 				var option = $('<option>');
@@ -90,4 +85,4 @@ Joomla.submitbutton = function (task, form) {
 // Add the script to the document head.
 JFactory::getDocument()->addScriptDeclaration($script);
 
-echo JLayoutHelper::render('com_sellacious.view.edit', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.edit', $data);

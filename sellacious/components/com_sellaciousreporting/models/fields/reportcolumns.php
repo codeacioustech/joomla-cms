@@ -80,8 +80,7 @@ JS;
 		$this->value = is_array($this->value) ? $this->value : (json_decode($this->value, true) ?: array());
 
 		$data    = array_merge(get_object_vars($this), array('handler' => $reportHandler));
-		$options = array('client' => 2, 'debug' => false);
-		$input   = JLayoutHelper::render('com_sellaciousreporting.forms.fields.reportcolumns', $data, '', $options);
+		$input   = JLayoutHelper::render('com_sellaciousreporting.forms.fields.reportcolumns', $data);
 
 		return $input;
 	}

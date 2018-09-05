@@ -122,8 +122,6 @@ class JFormFieldSwitches extends JFormField
 	 */
 	protected function getInput()
 	{
-		$html = array();
-
 		// Initialize some field attributes.
 		$checkedOptions = explode(',', (string) $this->checkedOptions);
 
@@ -138,7 +136,7 @@ class JFormFieldSwitches extends JFormField
 
 		JLog::add(JText::sprintf('Form field %s not yet implemented.', $this->type), JLog::WARNING, 'jerror');
 
-		$html  = JLayoutHelper::render('com_sellacious.formfield.switches', $data, '', array('client' => 2, 'debug'  => 0));
+		$html  = JLayoutHelper::render('com_sellacious.formfield.switches', $data);
 
 		return $html;
 	}

@@ -26,6 +26,4 @@ $data['view']      = &$this;
 $data['html']      = &$html;
 $data['view_item'] = 'user';
 
-$options = array('client' => 2, 'debug' => 0);
-
-echo JLayoutHelper::render('com_sellacious.view.list', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.list', $data);

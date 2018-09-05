@@ -139,7 +139,7 @@ class JFormFieldProductSellersGrid extends JFormField
 			'unlisted' => $this->getUnlistedSellers(),
 		);
 
-		$html = JLayoutHelper::render($this->layout, $data, '', array('debug' => false));
+		$html = JLayoutHelper::render($this->layout, $data);
 
 		return $html;
 	}

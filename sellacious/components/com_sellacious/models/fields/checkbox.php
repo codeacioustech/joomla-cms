@@ -136,7 +136,7 @@ class JFormFieldCheckbox extends JFormField
 		JHtml::_('script', 'system/html5fallback.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
 		// Frontend rendering should not be altered
-		if (JFactory::getApplication()->isSite())
+		if (JFactory::getApplication()->isClient('site'))
 		{
 			return '<input type="checkbox" name="' . $this->name . '" id="' . $this->id . '" value="'
 				. htmlspecialchars($value, ENT_COMPAT, 'UTF-8') . '"' . $class . $checked . $disabled . $onclick . $onchange
@@ -145,7 +145,7 @@ class JFormFieldCheckbox extends JFormField
 
 		$props = get_object_vars($this);
 		$data  = array_merge($props, compact('class', 'disabled', 'value', 'required', 'autofocus', 'checked', 'onclick', 'onchange'));
-		$html  = JLayoutHelper::render('joomla.formfield.checkbox.input', $data, '', array('debug'  => 0));
+		$html  = JLayoutHelper::render('joomla.formfield.checkbox.input', $data);
 
 		return $html;
 	}

@@ -73,7 +73,7 @@ class JFormFieldRadiotextcombo extends JFormField
 			'autocomplete', 'autofocus', 'spellcheck', 'pattern', 'inputmode', 'dirname', 'onchange',
 			'name', 'id', 'options', 'value', 'radiobuttons', 'fieldname', 'textlabel');
 
-		return JLayoutHelper::render('com_sellacious.formfield.'.$this->type, $layoutdata, '', array('client' => 2, 'debug'  => 0));
+		return JLayoutHelper::render('com_sellacious.formfield.'.$this->type, $layoutdata);
 	}
 
 	/**

@@ -22,9 +22,4 @@ $data = array(
 	'form'  => $this->form,
 );
 
-$options = array(
-	'client' => 2,
-	'debug'  => 0,
-);
-
-echo JLayoutHelper::render('com_sellacious.view.edittabs', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.edittabs', $data);

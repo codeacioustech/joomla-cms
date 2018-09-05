@@ -261,8 +261,8 @@ class SellaciousControllerCart extends SellaciousControllerBase
 				$address->show_st = $hasShippable;
 			}
 
-			$html     = JLayoutHelper::render('com_sellacious.user.addresses', $addresses, '', array('debug' => 0));
-			$modals   = JLayoutHelper::render('com_sellacious.user.modals', $addresses, '', array('debug' => 0));
+			$html     = JLayoutHelper::render('com_sellacious.user.addresses', $addresses);
+			$modals   = JLayoutHelper::render('com_sellacious.user.modals', $addresses);
 			$response = array(
 				'message' => '',
 				'data'    => array(preg_replace('/\s+/', ' ', $html), preg_replace('/\s+/', ' ', $modals), $hasShippable),
@@ -461,7 +461,7 @@ class SellaciousControllerCart extends SellaciousControllerBase
 				$args        = new stdClass;
 				$args->cart  = $this->helper->cart->getCart();
 
-				$html = JLayoutHelper::render('com_sellacious.cart.shippingform.flat_ship', $args, '', array('debug' => 0));
+				$html = JLayoutHelper::render('com_sellacious.cart.shippingform.flat_ship', $args);
 			}
 			else
 			{
@@ -470,7 +470,7 @@ class SellaciousControllerCart extends SellaciousControllerBase
 				$args->forms = $this->helper->cart->getShippingForms();
 				$layout      = $itemisedShip ? 'item_quotes' : 'cart_quotes';
 
-				$html = JLayoutHelper::render('com_sellacious.cart.shippingform.' . $layout, $args, '', array('debug' => 0));
+				$html = JLayoutHelper::render('com_sellacious.cart.shippingform.' . $layout, $args);
 			}
 
 			$response = array(
@@ -727,7 +727,7 @@ class SellaciousControllerCart extends SellaciousControllerBase
 			{
 				$args       = new stdClass;
 				$args->form = $form;
-				$html       = JLayoutHelper::render('com_sellacious.cart.checkoutform', $args, '', array('debug' => 0));
+				$html       = JLayoutHelper::render('com_sellacious.cart.checkoutform', $args);
 			}
 
 			$response = array(
@@ -814,7 +814,7 @@ class SellaciousControllerCart extends SellaciousControllerBase
 				$args         = new stdClass;
 				$args->cart   = $cart;
 				$args->values = $values;
-				$html         = JLayoutHelper::render('com_sellacious.cart.aio.checkoutform.viewer', $args, '', array('debug' => false));
+				$html         = JLayoutHelper::render('com_sellacious.cart.aio.checkoutform.viewer', $args);
 
 				$response = array(
 					'message' => JText::_($this->text_prefix . '_CHECKOUTFORM_SAVE_SUCCESS'),
@@ -866,7 +866,6 @@ class SellaciousControllerCart extends SellaciousControllerBase
 			$modal    = $this->input->getBool('modal', false);
 			$readonly = $this->input->getBool('readonly', false);
 
-			$options    = array('debug' => false);
 			$args       = new stdClass;
 			$args->cart = $this->helper->cart->getCart();
 
@@ -887,7 +886,7 @@ class SellaciousControllerCart extends SellaciousControllerBase
 				$layout = 'items';
 			}
 
-			$html     = JLayoutHelper::render('com_sellacious.cart.aio.' . $layout, $args, '', $options);
+			$html     = JLayoutHelper::render('com_sellacious.cart.aio.' . $layout, $args);
 			$response = array(
 				'message' => '',
 				'data'    => preg_replace('/[\n\t ]+/', ' ', $html),
@@ -1220,7 +1219,7 @@ class SellaciousControllerCart extends SellaciousControllerBase
 				}
 			}
 
-			$html     = JLayoutHelper::render($layout, $args, '', array('debug' => 0));
+			$html     = JLayoutHelper::render($layout, $args);
 			$response = array(
 				'message' => '',
 				'data'    => preg_replace(array('/[\n\t]+/', '/\r/', '/\s+/'), array('', "\r\n", ' '), $html),

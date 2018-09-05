@@ -58,11 +58,9 @@ class JFormFieldUserGrid extends JFormField
 		}
 
 		// May be we should also check for data structure of value. Skipping for now!
-		$options = array('client' => 2, 'debug' => false);
-
 		$rows = $this->getOptions();
 		$data = (object) array_merge(get_object_vars($this), array('lists' => $rows, 'currency' => $currency));
-		$html = JLayoutHelper::render('com_sellacious.formfield.usergrid', $data, '', $options);
+		$html = JLayoutHelper::render('com_sellacious.formfield.usergrid', $data);
 
 		JHtml::_('jquery.framework');
 		JHtml::_('stylesheet', 'com_sellacious/field.usergrid.css', array('version' => S_VERSION_CORE, 'relative' => true));

@@ -17,12 +17,7 @@ $data = array(
 	'form'  => $this->form,
 );
 
-$options = array(
-	'client' => 2,
-	'debug'  => 0,
-);
-
 JHtml::_('jquery.framework');
 JHtml::_('script', 'com_languages/view.language.js', array('version' => S_VERSION_CORE, 'relative' => true));
 
-echo JLayoutHelper::render('com_sellacious.view.edit', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.edit', $data);

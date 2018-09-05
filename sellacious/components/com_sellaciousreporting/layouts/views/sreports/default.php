@@ -24,11 +24,9 @@ $data['view']      = &$this;
 $data['html']      = &$html;
 $data['view_item'] = 'sreports';
 
-$options = array('client' => 2, 'debug' => 0);
-
 echo $this->handler->getRenderedSummary();
 
 ?><div style="overflow-x: auto"><?php
-echo JLayoutHelper::render('com_sellacious.view.list', $data, '', $options);
+echo JLayoutHelper::render('com_sellacious.view.list', $data);
 ?></div><br>
 <?php

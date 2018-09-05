@@ -33,9 +33,7 @@ $helper = SellaciousHelper::getInstance();
 		</thead>
 		<tbody>
 			<?php
-				$layout  = 'com_sellacious.formfield.text2d.rowtemplate';
-				$data	 = clone $field;
-				$options = array('client' => 2, 'debug' => 0);
+				$data    = clone $field;
 				$records = $field->value;
 
 				if (count($records))
@@ -43,7 +41,8 @@ $helper = SellaciousHelper::getInstance();
 					foreach ($records as $i => $void)
 					{
 						$data->row_index = $i;
-						echo JLayoutHelper::render($layout, $data, '', $options);
+
+						echo JLayoutHelper::render('com_sellacious.formfield.text2d.rowtemplate', $data);
 					}
 				}
 			?>

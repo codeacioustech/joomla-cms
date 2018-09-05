@@ -80,10 +80,9 @@ class JFormFieldVariantPrices extends JFormField
 			}
 		}
 
-		$options = array('client' => 2, 'debug' => 0);
 		$props   = get_object_vars($this);
 		$data    = (object) array_merge($props, array('variants' => $variants));
-		$html    = JLayoutHelper::render('com_sellacious.formfield.variantprices', $data, '', $options);
+		$html    = JLayoutHelper::render('com_sellacious.formfield.variantprices', $data);
 
 		$data = (object) $props;
 
@@ -91,7 +90,7 @@ class JFormFieldVariantPrices extends JFormField
 		$empty_variant = $this->getEmptyVariant();
 		$data->variant = (object) $empty_variant;
 
-		$tmpl = JLayoutHelper::render('com_sellacious.formfield.variantprices.rowtemplate', $data, '', $options);
+		$tmpl = JLayoutHelper::render('com_sellacious.formfield.variantprices.rowtemplate', $data);
 		$tmpl = json_encode(preg_replace('/[\t\r\n]+/', '', $tmpl));
 
 		$doc = JFactory::getDocument();

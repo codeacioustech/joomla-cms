@@ -15,12 +15,7 @@ $field  = (object) $displayData;
 $medias = $field->value ? (array) $field->value : array();
 ?>
 <div class="jff-eproductmedia-wrapper" id="<?php echo $field->id ?>_wrapper">
-	<?php
-		$layoutFile = 'com_sellacious.formfield.eproductmedia.inactive';
-		$options    = array('client' => 2, 'debug' => 0);
-
-		echo JLayoutHelper::render($layoutFile, array(), '', $options);
-	?>
+	<?php echo JLayoutHelper::render('com_sellacious.formfield.eproductmedia.inactive'); ?>
 	<div class="messages-container"></div>
 	<div class="jff-eproductmedia-active hidden">
 		<input type="file" class="hidden"/>
@@ -49,22 +44,16 @@ $medias = $field->value ? (array) $field->value : array();
 			<?php
 			foreach ($medias as $media)
 			{
-				$layoutFile = 'com_sellacious.formfield.eproductmedia.rowtemplate';
-				$options    = array('client' => 2, 'debug' => 0);
-
 				$args        = new stdClass;
 				$args->field = $field;
 				$args->media = (object) $media;
 
-				echo JLayoutHelper::render($layoutFile, $args, '', $options);
+				echo JLayoutHelper::render('com_sellacious.formfield.eproductmedia.rowtemplate', $args);
 			}
 			?>
 			</tbody>
 			<tfoot class="hidden jff-eproductmedia-rowtemplate">
 				<?php
-				$layoutFile = 'com_sellacious.formfield.eproductmedia.rowtemplate';
-				$options    = array('client' => 2, 'debug' => 0);
-
 				$media = array(
 					'id'         => '#ID#',
 					'product_id' => '#PRODUCT_ID#',
@@ -80,7 +69,7 @@ $medias = $field->value ? (array) $field->value : array();
 				$args->field = $field;
 				$args->media = (object) $media;
 
-				echo JLayoutHelper::render($layoutFile, $args, '', $options);
+				echo JLayoutHelper::render('com_sellacious.formfield.eproductmedia.rowtemplate', $args);
 				?>
 			</tfoot>
 		</table>

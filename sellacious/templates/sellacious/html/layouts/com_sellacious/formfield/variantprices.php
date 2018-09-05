@@ -27,14 +27,11 @@ $helper = SellaciousHelper::getInstance();
 		</tr>
 		</thead>
 		<tbody><?php
-		$layout  = 'com_sellacious.formfield.variantprices.rowtemplate';
-		$options = array('client' => 2, 'debug' => 0);
-
 		foreach ($formfield->variants as $variant)
 		{
 			$formfield->variant = $variant;
 
-			echo JLayoutHelper::render($layout, $formfield, '', $options);
+			echo JLayoutHelper::render('com_sellacious.formfield.variantprices.rowtemplate', $formfield);
 		}
 		?></tbody>
 		<tfoot class="hidden">

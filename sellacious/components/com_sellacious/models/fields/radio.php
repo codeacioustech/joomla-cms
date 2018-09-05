@@ -42,7 +42,7 @@ class JFormFieldRadio extends JFormField
 		$data            = get_object_vars($this);
 		$data['options'] = $options;
 
-		return JLayoutHelper::render('joomla.formfield.radio.input', $data, '', array('debug' => 0));
+		return JLayoutHelper::render('joomla.formfield.radio.input', $data);
 	}
 
 	/**
