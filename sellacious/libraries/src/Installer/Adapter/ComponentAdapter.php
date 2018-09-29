@@ -1233,11 +1233,12 @@ class ComponentAdapter extends InstallerAdapter
 
 		foreach ($site_components as $component)
 		{
-			if (file_exists(JPATH_SITE . '/components/' . $component . '/' . str_replace('com_', '', $component) . '.xml'))
+			$path = JPATH_SITE . '/components/' . $component . '/' . str_replace('com_', '', $component) . '.xml';
+
+			if (file_exists($path))
 			{
-				$manifest_details = Installer::parseXMLInstallFile(
-					JPATH_SITE . '/components/' . $component . '/' . str_replace('com_', '', $component) . '.xml'
-				);
+				$manifest_details = Installer::parseXMLInstallFile($path);
+
 				$extension = Table::getInstance('extension');
 				$extension->set('type', 'component');
 				$extension->set('client_id', 0);
@@ -1247,6 +1248,7 @@ class ComponentAdapter extends InstallerAdapter
 				$extension->set('state', -1);
 				$extension->set('manifest_cache', json_encode($manifest_details));
 				$extension->set('params', '{}');
+
 				$results[] = $extension;
 			}
 		}

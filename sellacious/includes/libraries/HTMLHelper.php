@@ -182,46 +182,14 @@ abstract class HTMLHelper extends \Joomla\CMS\HTML\HTMLHelper
 			// Divide the file extracting the extension as the first part before /
 			list($extension, $file) = explode('/', $file, 2);
 
-			// If the file yet contains any /: it can be a plugin
+			// If the file still contains any /: it can be a plugin
 			if (strpos($file, '/'))
 			{
 				// Divide the file extracting the element as the first part before /
-				list($element, $file) = explode('/', $file, 2);
+				list($element, $plugin) = explode('/', $file, 2);
 
 				// Try to deal with plugins group in the media folder
-				$path = "/media/$extension/$element/$folder/$file";
-
-				if (file_exists(JPATH_BASE . $path))
-				{
-					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
-				}
-				elseif (file_exists(JPATH_ROOT . $path))
-				{
-					return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
-				}
-
-				// Try to deal with classical file in a media subfolder called element
-				$path = "/media/$extension/$folder/$element/$file";
-
-				if (file_exists(JPATH_BASE . $path))
-				{
-					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
-				}
-				elseif (file_exists(JPATH_ROOT . $path))
-				{
-					return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
-				}
-
-				// Try to deal with system files in the template folder
-				$path = "/templates/$template/$folder/system/$element/$file";
-
-				if (file_exists(JPATH_BASE . $path))
-				{
-					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
-				}
-
-				// Try to deal with system files in the media folder
-				$path = "/media/system/$folder/$element/$file";
+				$path = "/media/$extension/$element/$folder/$plugin";
 
 				if (file_exists(JPATH_BASE . $path))
 				{
@@ -232,39 +200,41 @@ abstract class HTMLHelper extends \Joomla\CMS\HTML\HTMLHelper
 					return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
 				}
 			}
-			else
+
+			// Try to deal with classical file in a media folder
+			$path = "/media/$extension/$folder/$file";
+
+			if (file_exists(JPATH_BASE . $path))
 			{
-				// Try to deals in the extension media folder
-				$path = "/media/$extension/$folder/$file";
+				return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+			}
+			elseif (file_exists(JPATH_ROOT . $path))
+			{
+				return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
+			}
 
-				if (file_exists(JPATH_BASE . $path))
-				{
-					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
-				}
-				elseif (file_exists(JPATH_ROOT . $path))
-				{
-					return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
-				}
+			// Try to deal with system files in the template folder
+			$path = "/templates/$template/$folder/system/$file";
 
-				// Try to deal with system files in the template folder
-				$path = "/templates/$template/$folder/system/$file";
+			if (file_exists(JPATH_BASE . $path))
+			{
+				return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+			}
+			elseif (file_exists(JPATH_ROOT . $path))
+			{
+				return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
+			}
 
-				if (file_exists(JPATH_BASE . $path))
-				{
-					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
-				}
+			// Try to deal with system files in the media folder
+			$path = "/media/system/$folder/$file";
 
-				// Try to deal with system files in the media folder
-				$path = "/media/system/$folder/$file";
-
-				if (file_exists(JPATH_BASE . $path))
-				{
-					return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
-				}
-				elseif (file_exists(JPATH_ROOT . $path))
-				{
-					return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
-				}
+			if (file_exists(JPATH_BASE . $path))
+			{
+				return Uri::base(true) . $path . static::getMd5Version(JPATH_BASE . $path);
+			}
+			elseif (file_exists(JPATH_ROOT . $path))
+			{
+				return Uri::root(true) . $path . static::getMd5Version(JPATH_ROOT . $path);
 			}
 		}
 		// Try to deal with system files in the media folder

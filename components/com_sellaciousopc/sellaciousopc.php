@@ -15,7 +15,7 @@ JLoader::import('sellacious.loader');
 
 if (!class_exists('SellaciousHelper'))
 {
-	JLog::add('COM_SELLACIOUSOPC_LIBRARY_NOT_FOUND');
+	JLog::add(JText::_('COM_SELLACIOUSOPC_LIBRARY_NOT_FOUND'));
 
 	return false;
 }

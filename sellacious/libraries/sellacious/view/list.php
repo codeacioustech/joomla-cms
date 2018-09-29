@@ -241,8 +241,8 @@ abstract class SellaciousViewList extends SellaciousView
 	protected function setPageTitle()
 	{
 		$lang = JFactory::getLanguage();
-		$lang->load('mod_smartymenu', JPATH_SITE . '/' . JPATH_SELLACIOUS_DIR . '/modules/mod_smartymenu');
-		$lang->load('mod_smartymenu', JPATH_SITE . '/' . JPATH_SELLACIOUS_DIR);
+		$lang->load('mod_smartymenu', JPATH_SELLACIOUS . '/modules/mod_smartymenu');
+		$lang->load('mod_smartymenu', JPATH_SELLACIOUS);
 
 		$active_uri = JUri::getInstance()->toString(array('path', 'query', 'fragment'));
 		$base_uri   = rtrim(JUri::base(true), '/') . '/';

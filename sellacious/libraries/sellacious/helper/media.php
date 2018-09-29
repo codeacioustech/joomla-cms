@@ -196,19 +196,18 @@ class SellaciousHelperMedia extends SellaciousHelperBase
 	{
 		$types = is_array($types) ? $types : (empty($types) ? array() : explode(',', $types));
 
-		$db    = $this->db;
-		$query = $db->getQuery(true);
+		$query = $this->db->getQuery(true);
 
 		$query->select('a.mime, a.extension')->from('#__sellacious_mimes a')->where('a.state = 1');
 
 		if (count($types))
 		{
-			$query->where('a.category IN (' . implode(', ', $db->q($types)) . ')');
+			$query->where('a.category IN (' . implode(', ', $this->db->q($types)) . ')');
 		}
 
-		$db->setQuery($query);
+		$this->db->setQuery($query);
 
-		$result = $db->loadObjectList();
+		$result = $this->db->loadObjectList();
 		$mimes  = ArrayHelper::getColumn($result, 'mime');
 		$exts   = ArrayHelper::getColumn($result, 'extension');
 

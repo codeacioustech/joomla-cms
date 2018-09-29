@@ -853,7 +853,7 @@ class SellaciousHelperCore
 	public function rebuildMenu($clear = false)
 	{
 		// Create menu items for backoffice
-		JLoader::register('SellaciousInstallerScript', JPATH_ADMINISTRATOR . '/manifests/files/sellacious/installer.php');
+		JLoader::register('SellaciousInstallerScript', JPATH_MANIFESTS . '/files/sellacious/installer.php');
 
 		if (class_exists('SellaciousInstallerScript'))
 		{
